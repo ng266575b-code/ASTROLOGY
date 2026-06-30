@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cosmic-blue: #0B0F19;
+  --color-celestial-gold: #D4AF37;
+  --color-aurora-green: #00FF9D;
+  --color-aurora-purple: #9D00FF;
+
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-space-grotesk);
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)];
+  }
+  
+  .glow-border-gold {
+    @apply border-celestial-gold/50 shadow-[0_0_15px_rgba(212,175,55,0.3)];
+  }
+  
+  .glow-border-aurora {
+    @apply border-aurora-purple/50 shadow-[0_0_20px_rgba(157,0,255,0.3)];
+  }
+
+  .text-glow-gold {
+    text-shadow: 0 0 10px rgba(212,175,55,0.7);
+  }
+
+  .mask-gradient-to-b {
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  }
+}
+
+body {
+  background-color: var(--color-cosmic-blue);
+  color: #ffffff;
+  @apply font-sans antialiased;
+}
