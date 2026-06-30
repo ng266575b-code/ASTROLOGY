@@ -40,6 +40,7 @@ export function CosmicInsightsSection() {
   const [loading, setLoading] = useState(true);
   const [selectedIdx, setSelectedIdx] = useState<number>(0);
   const [stats, setStats] = useState({ love: 80, career: 95, health: 70 });
+  const [todayStr, setTodayStr] = useState("");
   const [dateRangeStr, setDateRangeStr] = useState("");
   const autoRotateRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -52,6 +53,8 @@ export function CosmicInsightsSection() {
     const formatOpts: Intl.DateTimeFormatOptions = { month: 'long', day: 'numeric', year: 'numeric' };
     const todayFormatted = new Intl.DateTimeFormat('en-US', formatOpts).format(today);
     const pastFormatted = new Intl.DateTimeFormat('en-US', formatOpts).format(past);
+    
+    setTodayStr(todayFormatted);
     setDateRangeStr(`${pastFormatted} - ${todayFormatted}`);
 
     async function fetchHoroscopes() {
@@ -133,7 +136,7 @@ export function CosmicInsightsSection() {
               Daily Horoscope
             </h2>
             <p className="text-aurora-purple text-base md:text-lg font-medium mb-6 tracking-wide">
-              {dateRangeStr}
+              {todayStr}
             </p>
 
             <div className="flex items-center gap-3 mb-6">
@@ -251,7 +254,7 @@ export function CosmicInsightsSection() {
            
            <div className="text-center mt-2 md:mt-4 z-20">
               <p className="text-celestial-gold font-heading text-lg md:text-2xl uppercase font-bold tracking-widest drop-shadow-md">{selectedSign.name}</p>
-              <p className="text-aurora-purple text-[10px] md:text-xs tracking-[0.2em] whitespace-nowrap opacity-90">{selectedSign.dates}</p>
+              <p className="text-aurora-purple text-[10px] md:text-xs tracking-[0.2em] whitespace-nowrap opacity-90">{dateRangeStr}</p>
            </div>
         </div>
       </div>
