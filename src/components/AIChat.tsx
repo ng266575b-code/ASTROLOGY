@@ -23,6 +23,17 @@ export function AIChat() {
 
     const getAIResponse = (text: string) => {
       const lower = text.toLowerCase();
+      
+      // Greetings
+      if (lower === "hi" || lower === "hello" || lower === "hey" || lower === "greetings") {
+        const responses = [
+          "Greetings, traveler of the cosmos. The stars are listening. What guidance do you seek today?",
+          "Hello! The astral plane is vibrant today. Ask me about your love, career, or wealth, and I shall read the energies for you.",
+          "Welcome back! I am Orbitar, your AI oracle. Whether you seek answers about your future or the present moment, I am ready."
+        ];
+        return responses[Math.floor(Math.random() * responses.length)];
+      }
+
       if (lower.includes("love") || lower.includes("relationship") || lower.includes("partner")) {
         const responses = [
           "Venus is currently positioned to bring harmony to your connections. Be open to vulnerability.",
