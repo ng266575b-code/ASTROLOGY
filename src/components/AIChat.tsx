@@ -21,6 +21,42 @@ export function AIChat() {
     setInput("");
     setIsTyping(true);
 
+    const getAIResponse = (text: string) => {
+      const lower = text.toLowerCase();
+      if (lower.includes("love") || lower.includes("relationship") || lower.includes("partner")) {
+        const responses = [
+          "Venus is currently positioned to bring harmony to your connections. Be open to vulnerability.",
+          "The cosmic energies suggest a period of reflection in matters of the heart. Seek balance within before seeking others.",
+          "A significant alignment is approaching in your seventh house. New romantic possibilities are on the horizon."
+        ];
+        return responses[Math.floor(Math.random() * responses.length)];
+      }
+      if (lower.includes("career") || lower.includes("job") || lower.includes("work")) {
+        const responses = [
+          "Saturn demands discipline right now. Stay focused on your long-term goals and the career breakthrough will follow.",
+          "Jupiter is expanding your professional sector. It's a favorable time to take calculated risks in your career.",
+          "Your midheaven is activated! Expect sudden recognition or a shift in your professional path soon."
+        ];
+        return responses[Math.floor(Math.random() * responses.length)];
+      }
+      if (lower.includes("money") || lower.includes("finance") || lower.includes("wealth")) {
+        const responses = [
+          "The second house of finances is stabilizing. Focus on saving rather than impulsive spending this week.",
+          "Cosmic currents suggest an unexpected financial opportunity may present itself. Stay vigilant.",
+          "Abundance is a state of mind. As you align your energy with gratitude, material wealth will naturally follow."
+        ];
+        return responses[Math.floor(Math.random() * responses.length)];
+      }
+      const generic = [
+        "The stars indicate a period of transformation. What you seek is already within your grasp.",
+        "The universe hears your query, but the timing is not yet aligned for a clear answer. Patience is your greatest ally.",
+        "A celestial shift is occurring. Trust your intuition, for your inner voice is currently attuned to the cosmic frequency.",
+        "Mercury's current transit suggests you should communicate your intentions clearly to the universe to manifest your desires.",
+        "The astral planes are vibrating with your question. The answer will come to you through a sudden realization today."
+      ];
+      return generic[Math.floor(Math.random() * generic.length)];
+    };
+
     // Simulate AI response
     setTimeout(() => {
       setIsTyping(false);
@@ -28,7 +64,7 @@ export function AIChat() {
         ...prev, 
         { 
           id: Date.now() + 1, 
-          text: "The stars align favorably. Your current trajectory indicates a significant shift in your cosmic energy regarding this matter. Trust your intuition.", 
+          text: getAIResponse(userMsg), 
           sender: "ai" 
         }
       ]);
