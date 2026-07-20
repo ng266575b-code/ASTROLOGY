@@ -1,0 +1,50 @@
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+
+export default function LoginPage() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-[#050810] relative overflow-hidden px-4">
+      {/* Background glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-celestial-gold/5 blur-[120px] rounded-full pointer-events-none" />
+
+      <Link 
+        href="/"
+        className="absolute top-8 left-8 text-gray-400 hover:text-white flex items-center gap-2 transition-colors z-20"
+      >
+        <ArrowLeft size={20} />
+        Back to Cosmos
+      </Link>
+
+      <div className="bg-[#0a0514]/80 backdrop-blur-xl p-10 rounded-2xl border border-white/10 max-w-md w-full text-center shadow-[0_0_40px_rgba(212,175,55,0.15)] relative z-10">
+        <div className="w-20 h-20 mx-auto bg-aurora-purple/10 rounded-full flex items-center justify-center border border-aurora-purple/30 mb-6 shadow-[0_0_20px_rgba(157,0,255,0.3)]">
+          <span className="text-4xl">🔮</span>
+        </div>
+        
+        <h2 className="text-3xl font-heading font-bold text-white mb-2 text-glow-gold">Welcome Back</h2>
+        <p className="text-gray-400 mb-8 text-sm">Please authenticate to continue to your expert connection and synchronize with your cosmic path.</p>
+        
+        <div className="flex flex-col gap-4">
+          <button className="w-full bg-white text-black font-bold py-3 px-4 rounded-xl transition-transform hover:scale-[1.02] flex items-center justify-center gap-3">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22.56 12.25C22.56 11.47 22.49 10.72 22.36 10H12V14.26H17.92C17.66 15.63 16.88 16.78 15.7 17.57V20.34H19.28C21.36 18.42 22.56 15.6 22.56 12.25Z" fill="#4285F4"/>
+              <path d="M12 23C14.97 23 17.46 22.02 19.28 20.34L15.7 17.57C14.71 18.23 13.47 18.63 12 18.63C9.16 18.63 6.76 16.71 5.88 14.15H2.2V17.01C4.01 20.59 7.7 23 12 23Z" fill="#34A853"/>
+              <path d="M5.88 14.15C5.66 13.48 5.53 12.76 5.53 12C5.53 11.24 5.66 10.52 5.88 9.85V6.99H2.2C1.46 8.46 1 10.18 1 12C1 13.82 1.46 15.54 2.2 17.01L5.88 14.15Z" fill="#FBBC05"/>
+              <path d="M12 5.38C13.62 5.38 15.06 5.93 16.2 7.02L19.36 3.86C17.45 2.08 14.97 1 12 1C7.7 1 4.01 3.41 2.2 6.99L5.88 9.85C6.76 7.29 9.16 5.38 12 5.38Z" fill="#EA4335"/>
+            </svg>
+            Continue with Google
+          </button>
+          
+          <div className="relative flex items-center py-2">
+            <div className="flex-grow border-t border-white/10"></div>
+            <span className="flex-shrink-0 mx-4 text-gray-500 text-xs">OR</span>
+            <div className="flex-grow border-t border-white/10"></div>
+          </div>
+          
+          <button className="w-full border border-white/20 bg-black/40 hover:bg-white/10 text-white font-bold py-3 px-4 rounded-xl transition-colors">
+            Continue with Email
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
