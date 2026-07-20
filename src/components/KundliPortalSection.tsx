@@ -133,7 +133,29 @@ export function KundliPortalSection() {
                     Current Horoscope for {formData.name}
                   </h3>
                   <p className="text-gray-300 text-sm leading-relaxed">
-                    Based on your birth at <strong>{formData.time}</strong> in <strong>{formData.place}</strong> on <strong>{formData.dob}</strong>, your cosmic alignments show a strong planetary influence in your 10th house. This signifies a powerful period for professional growth and personal transformation. Trust your intuition over the next 48 hours as Mercury's transit reveals hidden opportunities.
+                    {(() => {
+                      const seedStr = formData.name + formData.dob + formData.place;
+                      const seed = seedStr.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
+                      
+                      const houses = ["1st (Self)", "2nd (Wealth)", "3rd (Courage)", "4th (Home)", "5th (Creativity)", "7th (Partnerships)", "9th (Luck & Dharma)", "10th (Career)", "11th (Gains)", "12th (Spirituality)"];
+                      const planets = ["Sun (Surya)", "Moon (Chandra)", "Mars (Mangal)", "Mercury (Budh)", "Jupiter (Guru)", "Venus (Shukra)", "Saturn (Shani)"];
+                      
+                      const house = houses[seed % houses.length];
+                      const planet = planets[seed % planets.length];
+                      
+                      const themes = [
+                        `signifies a powerful period for professional growth and personal transformation. Trust your intuition over the next 48 hours as ${planet}'s transit reveals hidden opportunities.`,
+                        `indicates a time of emotional healing and strengthening relationships. The alignment in your ${house} house suggests a sudden positive shift in your domestic life.`,
+                        `brings immense financial clarity. You may find unexpected sources of income as ${planet} blesses your endeavors this week.`,
+                        `pushes you towards spiritual growth. Meditation and self-reflection will yield profound insights thanks to the current placement in your ${house} house.`,
+                        `sparks a wave of creativity. Your ideas will be well-received by peers, and ${planet}'s influence guarantees a successful collaborative project.`,
+                        `warns you to be cautious with sudden changes. However, strong energy in your ${house} house ensures that patience will eventually lead to long-term stability.`
+                      ];
+                      
+                      const theme = themes[seed % themes.length];
+                      
+                      return `Based on your birth at ${formData.time} in ${formData.place} on ${formData.dob}, your cosmic alignments show a strong ${planet} influence in your ${house} house. This ${theme}`;
+                    })()}
                   </p>
                 </GlassCard>
 
@@ -145,7 +167,7 @@ export function KundliPortalSection() {
                   </div>
                   
                   <div className="scale-[0.85] md:scale-100 flex items-center justify-center w-full h-full mt-4">
-                    <VedicKundliChart />
+                    <VedicKundliChart seed={formData.name + formData.dob} />
                   </div>
                 </div>
               </div>

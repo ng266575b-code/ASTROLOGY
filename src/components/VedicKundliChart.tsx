@@ -2,19 +2,24 @@
 
 import { motion } from "framer-motion";
 
-export function VedicKundliChart() {
-  // Randomize ascendant and planet positions for the mock
-  const ascendant = 4; // Cancer lagna
+export function VedicKundliChart({ seed = "default" }: { seed?: string }) {
+  // Generate deterministic number from seed string
+  const seedNum = seed.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
+
+  // Randomize ascendant based on seed
+  const ascendant = (seedNum % 12) + 1;
+  
+  // Randomize planet placements deterministically
   const planets = [
-    { name: "Su", house: 1 },
-    { name: "Mo", house: 5 },
-    { name: "Ma", house: 10 },
-    { name: "Me", house: 2 },
-    { name: "Ju", house: 9 },
-    { name: "Ve", house: 1 },
-    { name: "Sa", house: 7 },
-    { name: "Ra", house: 6 },
-    { name: "Ke", house: 12 },
+    { name: "Su", house: ((seedNum * 2) % 12) + 1 },
+    { name: "Mo", house: ((seedNum * 3) % 12) + 1 },
+    { name: "Ma", house: ((seedNum * 5) % 12) + 1 },
+    { name: "Me", house: ((seedNum * 7) % 12) + 1 },
+    { name: "Ju", house: ((seedNum * 11) % 12) + 1 },
+    { name: "Ve", house: ((seedNum * 13) % 12) + 1 },
+    { name: "Sa", house: ((seedNum * 17) % 12) + 1 },
+    { name: "Ra", house: ((seedNum * 19) % 12) + 1 },
+    { name: "Ke", house: (((seedNum * 19) % 12) + 1 + 6 > 12) ? ((seedNum * 19) % 12) + 1 - 6 : ((seedNum * 19) % 12) + 1 + 6 }, // Ke is always opposite Ra
   ];
 
   const getZodiacNum = (houseNum: number) => {
