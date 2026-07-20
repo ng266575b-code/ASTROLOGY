@@ -3,9 +3,89 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { auth, googleProvider, db } from "../../lib/firebase";
+import { 
+  signInWithPopup, 
+  signInWithEmailAndPassword, 
+  createUserWithEmailAndPassword 
+} from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 
 export default function LoginPage() {
   const [isLogin, setIsLogin] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
+
+  const handleAuthError = (err: any) => {
+    console.error(err);
+    if (err.code === "auth/invalid-credential") {
+      setError("Invalid email or password.");
+    } else if (err.code === "auth/email-already-in-use") {
+      setError("An account with this email already exists.");
+    } else {
+      setError(err.message || "An error occurred during authentication.");
+    }
+  };
+
+  const handleEmailAuth = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+
+    try {
+      if (isLogin) {
+        // Log in
+        await signInWithEmailAndPassword(auth, email, password);
+        router.push("/#insights");
+      } else {
+        // Register
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        
+        // Save user to Firestore
+        await setDoc(doc(db, "users", user.uid), {
+          uid: user.uid,
+          name: name,
+          email: email,
+          createdAt: new Date().toISOString()
+        });
+
+        router.push("/#insights");
+      }
+    } catch (err: any) {
+      handleAuthError(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    setError("");
+    setLoading(true);
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      
+      // Save/Merge user to Firestore
+      await setDoc(doc(db, "users", user.uid), {
+        uid: user.uid,
+        name: user.displayName || "Cosmic Traveler",
+        email: user.email,
+        lastLogin: new Date().toISOString()
+      }, { merge: true });
+
+      router.push("/#insights");
+    } catch (err: any) {
+      handleAuthError(err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#050810] relative overflow-hidden px-4">
@@ -31,23 +111,31 @@ export default function LoginPage() {
         <h2 className="text-3xl font-heading font-bold text-white mb-2 text-glow-gold text-center">
           {isLogin ? "Welcome Back" : "Join the Cosmos"}
         </h2>
-        <p className="text-gray-400 mb-8 text-sm text-center">
+        <p className="text-gray-400 mb-6 text-sm text-center">
           {isLogin 
             ? "Please authenticate to continue your cosmic journey." 
             : "Create an account to unlock premium astrological insights."}
         </p>
         
+        {error && (
+          <div className="bg-red-500/20 border border-red-500/50 text-red-200 text-sm p-3 rounded-lg mb-6 text-center">
+            {error}
+          </div>
+        )}
+
         <div className="flex flex-col gap-4">
           {/* Email and Password Form */}
-          <form className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
+          <form className="flex flex-col gap-4" onSubmit={handleEmailAuth}>
             {!isLogin && (
               <div>
                 <label className="block text-sm text-gray-400 mb-1">Full Name</label>
                 <input 
                   type="text" 
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   placeholder="Enter your name" 
                   className="w-full bg-black/40 border border-white/20 rounded-lg py-3 px-4 text-white outline-none focus:border-celestial-gold transition-colors"
-                  required
+                  required={!isLogin}
                 />
               </div>
             )}
@@ -55,6 +143,8 @@ export default function LoginPage() {
               <label className="block text-sm text-gray-400 mb-1">Email Address</label>
               <input 
                 type="email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@universe.com" 
                 className="w-full bg-black/40 border border-white/20 rounded-lg py-3 px-4 text-white outline-none focus:border-celestial-gold transition-colors"
                 required
@@ -64,6 +154,8 @@ export default function LoginPage() {
               <label className="block text-sm text-gray-400 mb-1">Password</label>
               <input 
                 type="password" 
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••" 
                 className="w-full bg-black/40 border border-white/20 rounded-lg py-3 px-4 text-white outline-none focus:border-celestial-gold transition-colors"
                 required
@@ -72,9 +164,10 @@ export default function LoginPage() {
             
             <button 
               type="submit"
-              className="w-full mt-2 bg-gradient-to-r from-aurora-purple to-celestial-gold text-black font-bold py-3 px-4 rounded-xl transition-transform hover:scale-[1.02] flex items-center justify-center gap-3"
+              disabled={loading}
+              className="w-full mt-2 bg-gradient-to-r from-aurora-purple to-celestial-gold text-black font-bold py-3 px-4 rounded-xl transition-transform hover:scale-[1.02] flex items-center justify-center gap-3 disabled:opacity-50"
             >
-              {isLogin ? "Sign In" : "Register"}
+              {loading ? "Authenticating..." : (isLogin ? "Sign In" : "Register")}
             </button>
           </form>
 
@@ -84,7 +177,12 @@ export default function LoginPage() {
             <div className="flex-grow border-t border-white/10"></div>
           </div>
           
-          <button className="w-full border border-white/20 bg-black/40 hover:bg-white/10 text-white font-bold py-3 px-4 rounded-xl transition-colors flex items-center justify-center gap-3">
+          <button 
+            type="button"
+            onClick={handleGoogleLogin}
+            disabled={loading}
+            className="w-full border border-white/20 bg-black/40 hover:bg-white/10 text-white font-bold py-3 px-4 rounded-xl transition-colors flex items-center justify-center gap-3 disabled:opacity-50"
+          >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M22.56 12.25C22.56 11.47 22.49 10.72 22.36 10H12V14.26H17.92C17.66 15.63 16.88 16.78 15.7 17.57V20.34H19.28C21.36 18.42 22.56 15.6 22.56 12.25Z" fill="#4285F4"/>
               <path d="M12 23C14.97 23 17.46 22.02 19.28 20.34L15.7 17.57C14.71 18.23 13.47 18.63 12 18.63C9.16 18.63 6.76 16.71 5.88 14.15H2.2V17.01C4.01 20.59 7.7 23 12 23Z" fill="#34A853"/>
@@ -98,7 +196,10 @@ export default function LoginPage() {
         <p className="mt-8 text-center text-sm text-gray-400">
           {isLogin ? "Don't have an account? " : "Already have an account? "}
           <button 
-            onClick={() => setIsLogin(!isLogin)}
+            onClick={() => {
+              setIsLogin(!isLogin);
+              setError("");
+            }}
             className="text-celestial-gold font-bold hover:underline"
           >
             {isLogin ? "Register here" : "Sign in here"}
