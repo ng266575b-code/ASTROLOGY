@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -52,12 +53,12 @@ export function Navbar() {
 
         {/* Action Buttons */}
         <div className="flex items-center gap-4">
-          <button className="hidden md:block text-sm font-semibold tracking-wider text-white hover:text-celestial-gold transition-colors">
+          <Link href="/login" className="hidden md:block text-sm font-semibold tracking-wider text-white hover:text-celestial-gold transition-colors">
             LOG IN
-          </button>
-          <button className="bg-celestial-gold hover:bg-yellow-500 text-black text-sm font-bold py-2 px-6 rounded-full transition-transform hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(212,175,55,0.4)]">
+          </Link>
+          <Link href="/login" className="bg-celestial-gold hover:bg-yellow-500 text-black text-sm font-bold py-2 px-6 rounded-full transition-transform hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(212,175,55,0.4)] inline-block">
             SIGN UP
-          </button>
+          </Link>
         </div>
       </div>
     </motion.nav>
