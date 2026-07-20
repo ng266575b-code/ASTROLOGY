@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { GlassCard } from "./ui/GlassCard";
+import { NatalChartWheel } from "./NatalChartWheel";
 
 export function KundliPortalSection() {
   const [formData, setFormData] = useState({ name: "", dob: "", time: "", place: "" });
@@ -136,19 +137,17 @@ export function KundliPortalSection() {
                   </p>
                 </GlassCard>
 
-                {/* Kundli iframe */}
-                <div className="flex-1 w-full rounded-2xl overflow-hidden border-2 border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.5)] bg-white">
-                  {/* Using a Wikipedia page as a placeholder for the iframe, as most actual kundli sites have strict X-Frame-Options blocking embedding */}
-                  <iframe 
-                    src="https://en.wikipedia.org/wiki/Astrology" 
-                    title="Kundli Frame"
-                    className="w-full h-full border-0"
-                    sandbox="allow-scripts allow-same-origin"
-                  ></iframe>
+                {/* Generated Natal Chart */}
+                <div className="flex-1 w-full rounded-2xl overflow-hidden border-2 border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.5)] bg-[#0a0514] flex flex-col items-center justify-center relative min-h-[400px]">
+                  <div className="absolute top-4 left-6 z-20">
+                    <h4 className="text-celestial-gold font-bold tracking-widest text-sm uppercase">Natal Chart</h4>
+                    <p className="text-xs text-gray-400">Precision Generated</p>
+                  </div>
+                  
+                  <div className="scale-[0.85] md:scale-100 flex items-center justify-center w-full h-full mt-8">
+                    <NatalChartWheel />
+                  </div>
                 </div>
-                <p className="text-xs text-center text-gray-500 italic">
-                  Note: The iframe currently displays a placeholder. You can replace the src URL with your specific Kundli provider's widget URL.
-                </p>
               </div>
             )}
           </motion.div>
