@@ -5,6 +5,7 @@ import { TarotSection } from "@/components/TarotSection";
 import { CompatibilitySection } from "@/components/CompatibilitySection";
 import { PremiumGuidesSection } from "@/components/PremiumGuidesSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { KundliPortalSection } from "@/components/KundliPortalSection";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <HeroSection />
       <DashboardSection />
       <CosmicInsightsSection />
+      <KundliPortalSection />
       <TarotSection />
       <CompatibilitySection />
       <PremiumGuidesSection />
