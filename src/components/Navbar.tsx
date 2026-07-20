@@ -33,13 +33,19 @@ export function Navbar() {
 
         {/* Navigation Links */}
         <div className="hidden lg:flex items-center gap-8">
-          {["Home", "AI Oracle", "Insights", "Tarot", "Synastry", "Guides"].map((item) => (
+          {[
+            { name: "Insights", id: "insights" },
+            { name: "Kundli", id: "kundli" },
+            { name: "Tarot", id: "tarot" },
+            { name: "Match", id: "synastry" },
+            { name: "Guides", id: "guides" }
+          ].map((item) => (
             <a 
-              key={item} 
-              href={`#${item.toLowerCase().replace(" ", "-")}`}
-              className="text-sm font-semibold tracking-wider text-gray-300 hover:text-celestial-gold transition-colors"
+              key={item.id} 
+              href={`#${item.id}`}
+              className="text-sm font-semibold tracking-wider text-gray-300 hover:text-celestial-gold transition-colors uppercase"
             >
-              {item.toUpperCase()}
+              {item.name}
             </a>
           ))}
         </div>
