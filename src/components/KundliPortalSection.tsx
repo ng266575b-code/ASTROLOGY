@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { GlassCard } from "./ui/GlassCard";
-import { NatalChartWheel } from "./NatalChartWheel";
+import { VedicKundliChart } from "./VedicKundliChart";
 
 export function KundliPortalSection() {
   const [formData, setFormData] = useState({ name: "", dob: "", time: "", place: "" });
@@ -144,8 +144,8 @@ export function KundliPortalSection() {
                     <p className="text-xs text-gray-400">Precision Generated</p>
                   </div>
                   
-                  <div className="scale-[0.85] md:scale-100 flex items-center justify-center w-full h-full mt-8">
-                    <NatalChartWheel />
+                  <div className="scale-[0.85] md:scale-100 flex items-center justify-center w-full h-full mt-4">
+                    <VedicKundliChart />
                   </div>
                 </div>
               </div>
