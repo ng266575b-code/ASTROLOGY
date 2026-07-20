@@ -4,6 +4,7 @@ import { CosmicInsightsSection } from "@/components/CosmicInsightsSection";
 import { TarotSection } from "@/components/TarotSection";
 import { CompatibilitySection } from "@/components/CompatibilitySection";
 import { PremiumGuidesSection } from "@/components/PremiumGuidesSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <TarotSection />
       <CompatibilitySection />
       <PremiumGuidesSection />
+      <TestimonialsSection />
     </main>
   );
 }
