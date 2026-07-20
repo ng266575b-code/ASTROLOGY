@@ -6,6 +6,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { X, MessageCircle, PhoneCall } from "lucide-react";
 
 const HOROSCOPES = [
   { sign: "Aries", text: "A burst of fiery energy propels your career forward today. Take the lead on new projects." },
@@ -36,6 +37,7 @@ const COSMIC_NEWS = [
 export default function DashboardOverview() {
   const [userName, setUserName] = useState("Cosmic Traveler");
   const [currentHoroIndex, setCurrentHoroIndex] = useState(0);
+  const [isConnectModalOpen, setIsConnectModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -57,11 +59,11 @@ export default function DashboardOverview() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-8 pb-12">
+    <div className="flex flex-col gap-8 pb-12 relative">
       {/* Top Welcome Row */}
       <div className="flex flex-col md:flex-row gap-6 items-stretch">
         {/* Welcome Card */}
-        <GlassCard glowColor="aurora" className="flex-1 p-8 bg-gradient-to-br from-black/80 to-[#1a0b2e]/60 border border-aurora-purple/30">
+        <GlassCard glowColor="aurora" className="flex-1 p-8 bg-gradient-to-br from-black/80 to-[#1a0b2e]/60 border border-aurora-purple/30 flex items-center justify-between">
           <div className="flex items-center gap-6">
             <div className="w-20 h-20 rounded-full bg-aurora-purple/20 border-2 border-aurora-purple flex items-center justify-center text-3xl shadow-[0_0_20px_rgba(157,0,255,0.4)]">
               🧑‍🚀
@@ -72,7 +74,22 @@ export default function DashboardOverview() {
               <p className="text-sm text-gray-400 mt-2">Astro Enthusiast - Level 5</p>
             </div>
           </div>
+          
+          <button 
+            onClick={() => setIsConnectModalOpen(true)}
+            className="hidden md:flex bg-gradient-to-r from-aurora-purple to-celestial-gold text-black font-bold py-3 px-6 rounded-full transition-transform hover:scale-105 items-center gap-2 shadow-[0_0_20px_rgba(212,175,55,0.3)]"
+          >
+            Connect With Us
+          </button>
         </GlassCard>
+
+        {/* Mobile Connect Button */}
+        <button 
+          onClick={() => setIsConnectModalOpen(true)}
+          className="md:hidden bg-gradient-to-r from-aurora-purple to-celestial-gold text-black font-bold py-3 px-6 rounded-full transition-transform active:scale-95 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(212,175,55,0.3)]"
+        >
+          Connect With Us
+        </button>
 
         {/* Daily Horoscope Summary (Auto-Rotating) */}
         <GlassCard glowColor="gold" className="md:w-1/3 p-6 bg-black/60 border border-white/10 flex flex-col justify-center relative overflow-hidden">
@@ -106,32 +123,22 @@ export default function DashboardOverview() {
       {/* Main Grid Row */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
-        {/* Interactive Sky Map (Mock) */}
+        {/* Real Interactive Sky Map */}
         <div className="lg:col-span-2">
-          <GlassCard glowColor="aurora" className="h-[400px] p-6 bg-black/60 border border-white/10 flex flex-col relative overflow-hidden group">
-            <h3 className="text-xs font-bold text-gray-400 tracking-widest uppercase mb-4 relative z-10">Interactive Sky Map</h3>
-            
-            <div className="flex-1 rounded-xl bg-[#03050a] border border-white/5 relative overflow-hidden flex items-center justify-center">
-              {/* Mock Sky Map graphics */}
-              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-30"></div>
-              
-              <motion.div 
-                animate={{ rotate: 360 }}
-                transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-                className="w-[300px] h-[300px] rounded-full border border-white/10 relative"
-              >
-                {/* Sun */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-yellow-500 shadow-[0_0_40px_rgba(255,200,0,0.8)]"></div>
-                {/* Earth orbit */}
-                <div className="absolute inset-4 rounded-full border border-blue-500/20"></div>
-                <div className="absolute top-4 left-1/2 w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(0,100,255,0.8)]"></div>
-                {/* Mars orbit */}
-                <div className="absolute -inset-8 rounded-full border border-red-500/20"></div>
-                <div className="absolute bottom-[-2rem] right-1/4 w-3 h-3 rounded-full bg-red-500 shadow-[0_0_10px_rgba(255,0,0,0.8)]"></div>
-              </motion.div>
+          <GlassCard glowColor="aurora" className="h-[450px] p-0 bg-black/60 border border-white/10 flex flex-col relative overflow-hidden group">
+            <div className="absolute top-4 left-6 z-10 pointer-events-none">
+              <h3 className="text-xs font-bold text-gray-400 tracking-widest uppercase mb-1 drop-shadow-md">Live Interactive Sky Map</h3>
+              <p className="text-xs text-white/50">Drag to pan, scroll to zoom.</p>
             </div>
             
-            <p className="text-xs text-gray-500 mt-4 relative z-10">Tonight's View (Your Location: Simulated)</p>
+            <div className="flex-1 w-full h-full bg-[#03050a] relative overflow-hidden">
+              <iframe 
+                src="https://virtualsky.lco.global/embed/index.html?longitude=0&latitude=0&projection=polar&constellations=true&constellationlabels=true&showstarlabels=true&gridlines_az=true&live=true&az=180" 
+                className="w-full h-[120%] -mt-10 border-0" 
+                scrolling="no"
+                title="Live Sky Map"
+              ></iframe>
+            </div>
           </GlassCard>
         </div>
 
@@ -168,6 +175,87 @@ export default function DashboardOverview() {
           </GlassCard>
         </div>
       </div>
+
+      {/* Connect With Us Modal Popup */}
+      <AnimatePresence>
+        {isConnectModalOpen && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            {/* Backdrop */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsConnectModalOpen(false)}
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            />
+            
+            {/* Modal Content */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative w-full max-w-md bg-[#0a0514] border border-white/10 rounded-2xl p-8 shadow-[0_0_50px_rgba(212,175,55,0.15)] overflow-hidden"
+            >
+              {/* Decorative elements */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-celestial-gold/10 blur-[50px] rounded-full pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-aurora-purple/10 blur-[50px] rounded-full pointer-events-none" />
+              
+              <button 
+                onClick={() => setIsConnectModalOpen(false)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+              >
+                <X size={24} />
+              </button>
+
+              <div className="text-center mb-8 relative z-10">
+                <div className="w-20 h-20 mx-auto rounded-full border-2 border-celestial-gold p-1 mb-4">
+                  <img 
+                    src="https://shivalikcollege.edu.in/wp-content/uploads/2025/05/PANT-SIR.png" 
+                    alt="Sri Surmadhur Pant" 
+                    className="w-full h-full object-cover rounded-full"
+                  />
+                </div>
+                <h3 className="text-2xl font-heading font-bold text-white mb-1">Sri Surmadhur Pant</h3>
+                <p className="text-sm text-celestial-gold font-semibold uppercase tracking-widest">Astrologer Consultant</p>
+              </div>
+
+              <div className="space-y-4 relative z-10">
+                {/* Chat Option */}
+                <div className="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors cursor-pointer group">
+                  <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-full bg-aurora-purple/20 flex items-center justify-center text-aurora-purple group-hover:scale-110 transition-transform">
+                      <MessageCircle size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-white">Half an hour Chat</h4>
+                      <p className="text-xs text-gray-400">Direct WhatsApp Session</p>
+                    </div>
+                  </div>
+                  <div className="text-lg font-bold text-celestial-gold">₹50</div>
+                </div>
+
+                {/* Call Option */}
+                <div className="flex items-center justify-between p-4 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition-colors cursor-pointer group">
+                  <div className="flex items-center gap-4">
+                    <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+                      <PhoneCall size={20} />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-white">Direct Phone Call</h4>
+                      <p className="text-xs text-gray-400">Detailed Audio Consultation</p>
+                    </div>
+                  </div>
+                  <div className="text-lg font-bold text-celestial-gold">₹150</div>
+                </div>
+              </div>
+              
+              <p className="text-xs text-center text-gray-500 mt-6 relative z-10">
+                Clicking an option will initiate a secure payment gateway.
+              </p>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
