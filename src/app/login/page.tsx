@@ -41,7 +41,7 @@ export default function LoginPage() {
       if (isLogin) {
         // Log in
         await signInWithEmailAndPassword(auth, email, password);
-        router.push("/#insights");
+        router.push("/dashboard");
       } else {
         // Register
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -55,7 +55,7 @@ export default function LoginPage() {
           createdAt: new Date().toISOString()
         });
 
-        router.push("/#insights");
+        router.push("/dashboard");
       }
     } catch (err: any) {
       handleAuthError(err);
@@ -79,7 +79,7 @@ export default function LoginPage() {
         lastLogin: new Date().toISOString()
       }, { merge: true });
 
-      router.push("/#insights");
+      router.push("/dashboard");
     } catch (err: any) {
       handleAuthError(err);
     } finally {
