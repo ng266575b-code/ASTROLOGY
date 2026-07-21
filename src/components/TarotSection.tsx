@@ -2,7 +2,9 @@
 
 import { motion } from "framer-motion";
 import { GlassCard } from "./ui/GlassCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { auth } from "@/lib/firebase";
+import { LoginRequiredModal } from "./ui/LoginRequiredModal";
 
 const CARDS = [
   { title: "Past", description: "The foundations of your current cosmic state.", delay: 0 },
@@ -28,8 +30,21 @@ const TAROT_DECK = [
 
 export function TarotSection() {
   const [revealed, setRevealed] = useState<Record<number, { name: string, meaning: string }>>({});
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setIsLoggedIn(!!user);
+    });
+    return () => unsubscribe();
+  }, []);
 
   const handleReveal = (idx: number) => {
+    if (!isLoggedIn) {
+      setIsLoginModalOpen(true);
+      return;
+    }
     if (revealed[idx]) return; // already revealed
     const randomCard = TAROT_DECK[Math.floor(Math.random() * TAROT_DECK.length)];
     setRevealed(prev => ({ ...prev, [idx]: randomCard }));
@@ -124,6 +139,11 @@ export function TarotSection() {
           })}
         </div>
       </div>
+      <LoginRequiredModal 
+        isOpen={isLoginModalOpen} 
+        onClose={() => setIsLoginModalOpen(false)} 
+        featureName="Digital Tarot" 
+      />
     </section>
   );
 }

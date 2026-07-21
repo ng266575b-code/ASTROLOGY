@@ -1,5 +1,8 @@
 "use client";
 
+import { useState, useEffect } from "react";
+import { auth } from "@/lib/firebase";
+import { LoginRequiredModal } from "./ui/LoginRequiredModal";
 import { motion } from "framer-motion";
 import { GlassCard } from "./ui/GlassCard";
 import { CircularGauge } from "./ui/CircularGauge";
@@ -11,6 +14,24 @@ const ZODIACS = [
 ];
 
 export function CompatibilitySection() {
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setIsLoggedIn(!!user);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const handleCalculate = () => {
+    if (!isLoggedIn) {
+      setIsLoginModalOpen(true);
+      return;
+    }
+    // Existing calculation logic would go here
+  };
+
   return (
     <section id="synastry" className="py-24 px-6 lg:px-20 bg-cosmic-blue relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-celestial-gold/5 blur-[120px] rounded-full pointer-events-none" />
@@ -58,7 +79,10 @@ export function CompatibilitySection() {
                   </select>
                 </div>
 
-                <button className="mt-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+                <button 
+                  onClick={handleCalculate}
+                  className="mt-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+                >
                   Calculate Resonance
                 </button>
               </div>
@@ -86,6 +110,11 @@ export function CompatibilitySection() {
           </motion.div>
         </div>
       </div>
+      <LoginRequiredModal 
+        isOpen={isLoginModalOpen} 
+        onClose={() => setIsLoginModalOpen(false)} 
+        featureName="Cosmic Synastry" 
+      />
     </section>
   );
 }

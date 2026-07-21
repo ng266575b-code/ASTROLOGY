@@ -1,17 +1,36 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { GlassCard } from "./ui/GlassCard";
 import { VedicKundliChart } from "./VedicKundliChart";
+import { auth } from "@/lib/firebase";
+import { LoginRequiredModal } from "./ui/LoginRequiredModal";
+import { ConnectModal } from "./ui/ConnectModal";
 
 export function KundliPortalSection() {
   const [formData, setFormData] = useState({ name: "", dob: "", time: "", place: "" });
   const [isGenerated, setIsGenerated] = useState(false);
   const [loading, setLoading] = useState(false);
+  
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isConnectModalOpen, setIsConnectModalOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setIsLoggedIn(!!user);
+    });
+    return () => unsubscribe();
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!isLoggedIn) {
+      setIsLoginModalOpen(true);
+      return;
+    }
+    
     if (!formData.name || !formData.dob || !formData.time || !formData.place) return;
     
     setLoading(true);
@@ -114,10 +133,10 @@ export function KundliPortalSection() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="w-full lg:w-2/3 h-[600px]"
+            className="w-full lg:w-2/3 h-full"
           >
             {!isGenerated ? (
-              <GlassCard glowColor="gold" className="w-full h-full flex flex-col items-center justify-center p-8 border-2 border-dashed border-white/20 bg-black/20 text-center">
+              <GlassCard glowColor="gold" className="w-full h-[600px] flex flex-col items-center justify-center p-8 border-2 border-dashed border-white/20 bg-black/20 text-center">
                 <div className="w-24 h-24 mb-6 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
                   <span className="text-4xl opacity-50">🔮</span>
                 </div>
@@ -125,14 +144,17 @@ export function KundliPortalSection() {
                 <p className="text-gray-500 max-w-sm">Fill out the form to unlock your precise astrological natal chart and a customized horoscope reading.</p>
               </GlassCard>
             ) : (
-              <div className="w-full h-full flex flex-col gap-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
+              <div className="w-full h-full flex flex-col gap-6 animate-in fade-in slide-in-from-bottom-4 duration-700 pb-12">
                 
-                {/* Generated Horoscope Snippet */}
+                {/* Generated Horoscope Snippet (Tentative Prediction) */}
                 <GlassCard glowColor="aurora" className="p-6 border border-aurora-purple/50 bg-black/60 shadow-[0_0_20px_rgba(157,0,255,0.2)]">
-                  <h3 className="font-heading text-xl font-bold text-celestial-gold mb-2">
-                    Current Horoscope for {formData.name}
-                  </h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="font-heading text-xl font-bold text-celestial-gold">
+                      Tentative Prediction for {formData.name}
+                    </h3>
+                    <span className="text-xs bg-white/10 text-gray-400 px-2 py-1 rounded">AI Generated</span>
+                  </div>
+                  <p className="text-gray-300 text-sm leading-relaxed mb-6">
                     {(() => {
                       const seedStr = formData.name + formData.dob + formData.place;
                       const seed = seedStr.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
@@ -157,6 +179,13 @@ export function KundliPortalSection() {
                       return `Based on your birth at ${formData.time} in ${formData.place} on ${formData.dob}, your cosmic alignments show a strong ${planet} influence in your ${house} house. This ${theme}`;
                     })()}
                   </p>
+                  
+                  <button 
+                    onClick={() => setIsConnectModalOpen(true)}
+                    className="w-full md:w-auto bg-gradient-to-r from-aurora-purple to-celestial-gold text-black font-bold py-3 px-6 rounded-lg hover:scale-105 transition-transform flex items-center justify-center gap-2 mx-auto shadow-[0_0_20px_rgba(212,175,55,0.3)]"
+                  >
+                    For further and deep details contact astrologer
+                  </button>
                 </GlassCard>
 
                 {/* Generated Natal Chart */}
@@ -175,6 +204,16 @@ export function KundliPortalSection() {
           </motion.div>
         </div>
       </div>
+      
+      <LoginRequiredModal 
+        isOpen={isLoginModalOpen} 
+        onClose={() => setIsLoginModalOpen(false)} 
+        featureName="Free Kundli & Horoscope" 
+      />
+      <ConnectModal 
+        isOpen={isConnectModalOpen} 
+        onClose={() => setIsConnectModalOpen(false)} 
+      />
     </section>
   );
 }
