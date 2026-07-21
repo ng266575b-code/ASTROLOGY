@@ -7,19 +7,19 @@ import { Star } from "lucide-react";
 const TESTIMONIALS = [
   {
     id: 1,
-    name: "Ananya S.",
+    name: "Er. Ajay Verma",
     role: "Spiritual Seeker",
-    content: "The daily horoscopes are incredibly accurate, and the digital tarot draws gave me exactly the clarity I needed. Highly recommend!",
+    content: "The astrological guidance provided here has been nothing short of extraordinary. The clarity and precision are truly unmatched! 5 stars to the entire team.",
     rating: 5,
-    image: "https://i.pravatar.cc/150?u=ananya"
+    image: "https://cbii.shivalikcollege.edu.in/assets/ak-DP7NnX5A.jpg"
   },
   {
     id: 2,
-    name: "Rohan M.",
+    name: "Er. Kshitij Jain",
     role: "Tech Enthusiast",
-    content: "I've tried many astrology apps, but Orbitar AI Oracle is on another level. It feels like chatting with a real, deeply knowledgeable astrologer.",
+    content: "A beautifully designed platform that perfectly blends technology with ancient cosmic wisdom. Orbitar AI Oracle is my daily go-to for insights.",
     rating: 5,
-    image: "https://i.pravatar.cc/150?u=rohan"
+    image: "https://cbii.shivalikcollege.edu.in/assets/kshitijjain-DvrFwvbC.jpg"
   },
   {
     id: 3,
