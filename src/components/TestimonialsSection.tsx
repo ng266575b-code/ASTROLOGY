@@ -27,7 +27,7 @@ const TESTIMONIALS = [
     role: "Yoga Instructor",
     content: "The UI is absolutely gorgeous. Exploring my cosmic insights was so easy and magical. A must-have platform for anyone spiritual.",
     rating: 5,
-    image: "https://i.pravatar.cc/150?u=kavya"
+    image: "https://randomuser.me/api/portraits/women/68.jpg"
   },
   {
     id: 4,
@@ -35,7 +35,7 @@ const TESTIMONIALS = [
     role: "Business Owner",
     content: "Dr. Surmadhur Pant's guidance changed my perspective completely. This platform connects you with the best premium cosmic guides.",
     rating: 5,
-    image: "https://i.pravatar.cc/150?u=vikram"
+    image: "https://randomuser.me/api/portraits/men/43.jpg"
   },
   {
     id: 5,
