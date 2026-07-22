@@ -23,19 +23,19 @@ const TESTIMONIALS = [
   },
   {
     id: 3,
-    name: "Kumar Satyam",
+    name: "Bittu Kumar",
     role: "Spiritual Seeker",
     content: "The UI is absolutely gorgeous. Exploring my cosmic insights was so easy and magical. A must-have platform for anyone spiritual.",
     rating: 5,
-    image: "/kumar-satyam.jpg"
+    image: "/bittu-kumar.png"
   },
   {
     id: 4,
-    name: "Bittu Kumar",
+    name: "Kumar Satyam",
     role: "Business Owner",
     content: "Dr. Surmadhur Pant's guidance changed my perspective completely. This platform connects you with the best premium cosmic guides.",
     rating: 5,
-    image: "/bittu-kumar.png"
+    image: "/kumar-satyam.jpg"
   },
   {
     id: 5,
