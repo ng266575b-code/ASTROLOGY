@@ -23,11 +23,11 @@ const TESTIMONIALS = [
   },
   {
     id: 3,
-    name: "Kavya T.",
-    role: "Yoga Instructor",
+    name: "Kumar Satyam",
+    role: "Spiritual Seeker",
     content: "The UI is absolutely gorgeous. Exploring my cosmic insights was so easy and magical. A must-have platform for anyone spiritual.",
     rating: 5,
-    image: "https://randomuser.me/api/portraits/women/68.jpg"
+    image: "/kumar-satyam.jpg"
   },
   {
     id: 4,
