@@ -31,11 +31,11 @@ const TESTIMONIALS = [
   },
   {
     id: 4,
-    name: "Vikram P.",
+    name: "Bittu Kumar",
     role: "Business Owner",
     content: "Dr. Surmadhur Pant's guidance changed my perspective completely. This platform connects you with the best premium cosmic guides.",
     rating: 5,
-    image: "https://randomuser.me/api/portraits/men/43.jpg"
+    image: "/bittu-kumar.png"
   },
   {
     id: 5,
