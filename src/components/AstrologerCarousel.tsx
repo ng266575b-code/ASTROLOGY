@@ -34,10 +34,10 @@ export function AstrologerCarousel() {
               <img
                 src={astro.image}
                 alt={astro.name}
-                className="w-24 h-24 rounded-full border-2 border-white/20 mb-4 shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+                className="w-24 h-24 rounded-full border-2 border-gray-300/20 mb-4 shadow-[0_0_15px_rgba(255,255,255,0.2)]"
               />
               <h3 className="font-heading text-xl font-semibold mb-1">{astro.name}</h3>
-              <p className="text-sm text-gray-400 mb-3">{astro.expertise}</p>
+              <p className="text-sm text-gray-600 mb-3">{astro.expertise}</p>
               <div className="flex items-center gap-1 text-celestial-gold">
                 <Star size={16} fill="currentColor" />
                 <span className="font-bold text-sm">{astro.rating}</span>

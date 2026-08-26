@@ -51,7 +51,7 @@ export function TarotSection() {
   };
 
   return (
-    <section id="tarot" className="py-24 px-6 lg:px-20 bg-[#0B0F19] relative overflow-hidden">
+    <section id="tarot" className="py-24 px-6 lg:px-20 bg-slate-50 relative overflow-hidden">
       {/* Mystical background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-aurora-green/5 blur-[150px] rounded-full pointer-events-none" />
 
@@ -61,11 +61,11 @@ export function TarotSection() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="font-heading text-4xl md:text-5xl font-bold mb-4 text-white"
+            className="font-heading text-4xl md:text-5xl font-bold mb-4 text-gray-900"
           >
             Digital <span className="text-aurora-green text-glow-gold">Tarot</span>
           </motion.h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">Draw three cards to reveal the hidden threads of your journey.</p>
+          <p className="text-gray-600 max-w-2xl mx-auto">Draw three cards to reveal the hidden threads of your journey.</p>
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 lg:gap-12" style={{ perspective: 1000 }}>
@@ -91,14 +91,14 @@ export function TarotSection() {
                   {/* Front of Card (Unrevealed) */}
                   <GlassCard 
                     glowColor="gold" 
-                    className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center p-6 border-2 border-celestial-gold/30 bg-black/40"
+                    className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center p-6 border-2 border-celestial-gold/30 bg-white/40"
                     style={{ backfaceVisibility: "hidden" }}
                   >
                     <div className="w-16 h-16 mb-8 rounded-full bg-celestial-gold/10 flex items-center justify-center border border-celestial-gold/50 shadow-[0_0_15px_rgba(212,175,55,0.4)]">
                       <span className="text-2xl text-celestial-gold font-bold">{idx + 1}</span>
                     </div>
                     <h3 className="font-heading text-2xl font-bold text-celestial-gold mb-4 uppercase tracking-widest">{card.title}</h3>
-                    <p className="text-center text-sm text-gray-300">
+                    <p className="text-center text-sm text-gray-700">
                       {card.description}
                     </p>
                     <div className="mt-auto text-xs text-aurora-green animate-pulse uppercase tracking-widest font-semibold">
@@ -122,13 +122,13 @@ export function TarotSection() {
                         <span className="text-2xl drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">✨</span>
                       </div>
                       
-                      <h3 className="font-heading text-2xl md:text-3xl font-bold text-white mb-4 text-center drop-shadow-[0_0_15px_rgba(157,0,255,0.9)] leading-tight">
+                      <h3 className="font-heading text-2xl md:text-3xl font-bold text-gray-900 mb-4 text-center drop-shadow-[0_0_15px_rgba(157,0,255,0.9)] leading-tight">
                         {isRevealed ? revealed[idx].name : ""}
                       </h3>
                       
                       <div className="w-3/4 h-[2px] bg-gradient-to-r from-transparent via-celestial-gold/60 to-transparent mb-5"></div>
                       
-                      <p className="text-center text-sm md:text-sm text-gray-200 leading-relaxed font-medium px-2 drop-shadow-md">
+                      <p className="text-center text-sm md:text-sm text-gray-800 leading-relaxed font-medium px-2 drop-shadow-md">
                         {isRevealed ? revealed[idx].meaning : ""}
                       </p>
                     </div>

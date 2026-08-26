@@ -22,7 +22,7 @@ export function HeroSection() {
           <source src="/planets.mp4" type="video/mp4" />
         </video>
         {/* Dark overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-white/40" />
         {/* Gradient transition at the bottom to blend into the next section */}
         <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-cosmic-blue to-transparent" />
       </div>
@@ -44,7 +44,7 @@ export function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.6 }}
-            className="text-xl md:text-2xl text-gray-200 mb-10 max-w-2xl font-light"
+            className="text-xl md:text-2xl text-gray-800 mb-10 max-w-2xl font-light"
           >
             Unlock the mysteries of the universe with our premium astrology platform. Experience AI-driven insights and connect with elite cosmic guides.
           </motion.p>
@@ -63,7 +63,7 @@ export function HeroSection() {
             </button>
             <a 
               href="#insights"
-              className="w-full sm:w-auto text-center border border-white/30 hover:border-white text-white bg-white/5 backdrop-blur-md font-semibold py-4 px-8 rounded-full transition-colors"
+              className="w-full sm:w-auto text-center border border-gray-300/30 hover:border-white text-gray-900 bg-white/5 backdrop-blur-md font-semibold py-4 px-8 rounded-full transition-colors"
             >
               Explore Dashboard
             </a>
@@ -79,17 +79,17 @@ export function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-white/70 backdrop-blur-sm p-4"
           >
             <motion.div 
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20 }}
-              className="bg-[#0a0514] border border-celestial-gold/30 rounded-2xl p-8 max-w-sm w-full relative shadow-[0_0_40px_rgba(212,175,55,0.2)]"
+              className="bg-slate-50 border border-celestial-gold/30 rounded-2xl p-8 max-w-sm w-full relative shadow-[0_0_40px_rgba(212,175,55,0.2)]"
             >
               <button 
                 onClick={() => setShowExpertModal(false)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+                className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 transition-colors"
               >
                 ✕
               </button>
@@ -98,13 +98,13 @@ export function HeroSection() {
                 <span className="text-3xl">🔮</span>
               </div>
               
-              <h3 className="text-2xl font-heading font-bold text-white mb-2 text-center drop-shadow-md">Connect with Expert</h3>
-              <p className="text-gray-400 text-center text-sm mb-6">Choose how you'd like to reach out to our premium cosmic guides.</p>
+              <h3 className="text-2xl font-heading font-bold text-gray-900 mb-2 text-center drop-shadow-md">Connect with Expert</h3>
+              <p className="text-gray-600 text-center text-sm mb-6">Choose how you'd like to reach out to our premium cosmic guides.</p>
               
               <div className="flex flex-col gap-4">
                 <Link 
                   href="/login"
-                  className="flex items-center justify-center gap-3 w-full bg-[#25D366]/20 hover:bg-[#25D366]/30 border border-[#25D366]/50 text-white font-semibold py-3 rounded-xl transition-all hover:scale-[1.02]"
+                  className="flex items-center justify-center gap-3 w-full bg-[#25D366]/20 hover:bg-[#25D366]/30 border border-[#25D366]/50 text-gray-900 font-semibold py-3 rounded-xl transition-all hover:scale-[1.02]"
                 >
                   <MessageCircle size={20} className="text-[#25D366]" />
                   WhatsApp Chat Available
@@ -112,7 +112,7 @@ export function HeroSection() {
                 
                 <Link 
                   href="/login"
-                  className="flex items-center justify-center gap-3 w-full bg-aurora-purple/20 hover:bg-aurora-purple/30 border border-aurora-purple/50 text-white font-semibold py-3 rounded-xl transition-all hover:scale-[1.02]"
+                  className="flex items-center justify-center gap-3 w-full bg-aurora-purple/20 hover:bg-aurora-purple/30 border border-aurora-purple/50 text-gray-900 font-semibold py-3 rounded-xl transition-all hover:scale-[1.02]"
                 >
                   <Phone size={20} className="text-aurora-purple" />
                   Call Now

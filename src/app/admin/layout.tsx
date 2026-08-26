@@ -7,16 +7,16 @@ import { ArrowLeft } from "lucide-react";
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
     <ProtectedRoute requireAdmin={true}>
-      <div className="min-h-screen bg-[#020205] text-white flex flex-col">
+      <div className="min-h-screen bg-[#020205] text-gray-900 flex flex-col">
         {/* Admin Header */}
         <header className="h-16 bg-red-900/20 border-b border-red-500/30 px-6 flex items-center justify-between sticky top-0 z-50 backdrop-blur-md">
           <div className="flex items-center gap-4">
-            <Link href="/dashboard" className="text-gray-400 hover:text-white transition-colors">
+            <Link href="/dashboard" className="text-gray-600 hover:text-gray-900 transition-colors">
               <ArrowLeft size={20} />
             </Link>
-            <h1 className="text-xl font-bold tracking-widest text-red-400">ORBITAR <span className="text-white">ADMIN SECURE PORTAL</span></h1>
+            <h1 className="text-xl font-bold tracking-widest text-red-400">ORBITAR <span className="text-gray-900">ADMIN SECURE PORTAL</span></h1>
           </div>
-          <div className="text-xs font-mono text-gray-500 bg-black/50 px-3 py-1 rounded border border-white/10">
+          <div className="text-xs font-mono text-gray-500 bg-white/50 px-3 py-1 rounded border border-gray-300/10">
             Clearance Level: OMEGA
           </div>
         </header>

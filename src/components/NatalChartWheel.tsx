@@ -18,7 +18,7 @@ export function NatalChartWheel() {
       {/* Rotating SVG Chart */}
       <motion.svg
         viewBox="0 0 400 400"
-        className="w-full h-full text-white/50 drop-shadow-[0_0_10px_rgba(157,0,255,0.4)]"
+        className="w-full h-full text-gray-900/50 drop-shadow-[0_0_10px_rgba(157,0,255,0.4)]"
         animate={{ rotate: 360 }}
         transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
       >

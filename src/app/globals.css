@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cosmic-blue: #0B0F19;
-  --color-celestial-gold: #D4AF37;
-  --color-aurora-green: #00FF9D;
-  --color-aurora-purple: #9D00FF;
+  --color-cosmic-blue: #F8FAFC;
+  --color-celestial-gold: #B8860B;
+  --color-aurora-green: #00B36E;
+  --color-aurora-purple: #7A00CC;
 
   --font-sans: var(--font-inter);
   --font-heading: var(--font-space-grotesk);
@@ -12,19 +12,19 @@
 
 @layer utilities {
   .glass-card {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.3)];
+    @apply bg-white/60 backdrop-blur-xl border border-gray-200 rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.05)];
   }
   
   .glow-border-gold {
-    @apply border-celestial-gold/50 shadow-[0_0_15px_rgba(212,175,55,0.3)];
+    @apply border-celestial-gold/50 shadow-[0_0_15px_rgba(184,134,11,0.2)];
   }
   
   .glow-border-aurora {
-    @apply border-aurora-purple/50 shadow-[0_0_20px_rgba(157,0,255,0.3)];
+    @apply border-aurora-purple/50 shadow-[0_0_20px_rgba(122,0,204,0.2)];
   }
 
   .text-glow-gold {
-    text-shadow: 0 0 10px rgba(212,175,55,0.7);
+    text-shadow: 0 0 10px rgba(184,134,11,0.4);
   }
 
   .mask-gradient-to-b {
@@ -35,6 +35,6 @@
 
 body {
   background-color: var(--color-cosmic-blue);
-  color: #ffffff;
+  color: #111827;
   @apply font-sans antialiased;
 }
