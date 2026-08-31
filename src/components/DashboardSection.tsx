@@ -66,11 +66,11 @@ export function DashboardSection() {
     <section 
       id="dashboard"
       ref={ref}
-      className="relative min-h-screen bg-slate-50 pt-32 pb-20 px-6 lg:px-20 overflow-hidden"
+      className="relative min-h-screen bg-cosmic-blue pt-32 pb-20 px-6 lg:px-20 overflow-hidden"
     >
       {/* Background gradients for the dashboard */}
-      <div className="absolute top-0 inset-x-0 h-64 bg-gradient-to-b from-white/50 to-transparent pointer-events-none" />
-      <div className="absolute -left-[20%] top-[20%] w-[50%] h-[50%] bg-purple-100 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 inset-x-0 h-64 bg-gradient-to-b from-black/50 to-transparent pointer-events-none" />
+      <div className="absolute -left-[20%] top-[20%] w-[50%] h-[50%] bg-aurora-purple/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute -right-[20%] bottom-[10%] w-[40%] h-[40%] bg-celestial-gold/5 blur-[100px] rounded-full pointer-events-none" />
 
       <motion.div style={{ opacity, y }} className="max-w-7xl mx-auto z-10 relative">
@@ -78,7 +78,7 @@ export function DashboardSection() {
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4 text-glow-gold">
             The Orbitar AI Dashboard
           </h2>
-          <p className="text-gray-700 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
             Initialize your personalized matrix. Discover real-time insights synchronized with the cosmos.
           </p>
         </div>
@@ -91,7 +91,7 @@ export function DashboardSection() {
 
           {/* Center Column - Anti-Gravity Cards */}
           <div className="order-1 lg:order-2 flex justify-center relative">
-            <div className="absolute inset-0 bg-purple-100 blur-[100px] rounded-full z-0 pointer-events-none" />
+            <div className="absolute inset-0 bg-aurora-purple/10 blur-[100px] rounded-full z-0 pointer-events-none" />
             
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
@@ -128,7 +128,7 @@ export function DashboardSection() {
                       className="w-full h-full cursor-pointer group"
                       onMouseEnter={() => handleSliceHover(i)}
                     >
-                      <div className="w-full h-full rounded-2xl bg-white/60 border border-gray-300/50 shadow-[0_0_15px_rgba(157,0,255,0.1)] backdrop-blur-xl overflow-hidden p-2 transition-all duration-300 group-hover:border-aurora-purple/50 group-hover:bg-white/90 group-hover:scale-110">
+                      <div className="w-full h-full rounded-2xl bg-white/5 border border-white/10 shadow-[0_0_20px_rgba(157,0,255,0.2)] backdrop-blur-xl overflow-hidden p-2 transition-all duration-300 group-hover:border-aurora-purple/50 group-hover:bg-white/10 group-hover:scale-110">
                         <Image 
                           src={`/icon_${ZODIAC_INSIGHTS[i].name.toLowerCase()}.png`}
                           alt={ZODIAC_INSIGHTS[i].name}
@@ -149,8 +149,8 @@ export function DashboardSection() {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[85%] pointer-events-none"
                 >
-                  <GlassCard glowColor="gold" className="p-5 text-center bg-white/80 backdrop-blur-md">
-                    <h4 className="text-lg md:text-xl font-heading font-bold text-gray-900 mb-2 uppercase tracking-widest drop-shadow-md">
+                  <GlassCard glowColor="gold" className="p-5 text-center bg-black/80 backdrop-blur-md">
+                    <h4 className="text-lg md:text-xl font-heading font-bold text-white mb-2 uppercase tracking-widest drop-shadow-md">
                       {selectedInsight.name}
                     </h4>
                     <p className="text-sm md:text-base font-medium text-celestial-gold whitespace-pre-line leading-relaxed">

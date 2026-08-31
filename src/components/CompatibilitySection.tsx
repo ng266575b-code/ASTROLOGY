@@ -33,7 +33,7 @@ export function CompatibilitySection() {
   };
 
   return (
-    <section id="synastry" className="py-24 px-6 lg:px-20 bg-slate-50 relative overflow-hidden">
+    <section id="synastry" className="py-24 px-6 lg:px-20 bg-cosmic-blue relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-celestial-gold/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -42,11 +42,11 @@ export function CompatibilitySection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-heading text-4xl md:text-5xl font-bold mb-4 text-gray-900"
+            className="font-heading text-4xl md:text-5xl font-bold mb-4 text-white"
           >
             Cosmic <span className="text-glow-gold text-celestial-gold">Synastry</span>
           </motion.h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">Analyze the astrological resonance between two cosmic identities.</p>
+          <p className="text-gray-400 max-w-2xl mx-auto">Analyze the astrological resonance between two cosmic identities.</p>
         </div>
 
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
@@ -58,12 +58,12 @@ export function CompatibilitySection() {
             className="w-full max-w-md"
           >
             <GlassCard glowColor="aurora" className="p-8">
-              <h3 className="font-heading text-2xl font-semibold mb-6 text-gray-900 text-center">Select Entities</h3>
+              <h3 className="font-heading text-2xl font-semibold mb-6 text-white text-center">Select Entities</h3>
               
               <div className="flex flex-col gap-6">
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm text-gray-600">Entity 1 (Your Sign)</label>
-                  <select className="bg-white/50 border border-gray-300/20 rounded-lg p-3 text-gray-900 outline-none focus:border-celestial-gold cursor-pointer appearance-none">
+                  <label className="text-sm text-gray-400">Entity 1 (Your Sign)</label>
+                  <select className="bg-black/50 border border-white/20 rounded-lg p-3 text-white outline-none focus:border-celestial-gold cursor-pointer appearance-none">
                     {ZODIACS.map(z => <option key={z} value={z}>{z}</option>)}
                   </select>
                 </div>
@@ -73,15 +73,15 @@ export function CompatibilitySection() {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm text-gray-600">Entity 2 (Partner&apos;s Sign)</label>
-                  <select className="bg-white/50 border border-gray-300/20 rounded-lg p-3 text-gray-900 outline-none focus:border-celestial-gold cursor-pointer appearance-none">
+                  <label className="text-sm text-gray-400">Entity 2 (Partner&apos;s Sign)</label>
+                  <select className="bg-black/50 border border-white/20 rounded-lg p-3 text-white outline-none focus:border-celestial-gold cursor-pointer appearance-none">
                     {ZODIACS.map(z => <option key={z} value={z}>{z}</option>)}
                   </select>
                 </div>
 
                 <button 
                   onClick={handleCalculate}
-                  className="mt-4 bg-white/10 hover:bg-white/20 border border-gray-300/30 text-gray-900 font-bold py-3 px-6 rounded-lg transition-colors"
+                  className="mt-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold py-3 px-6 rounded-lg transition-colors"
                 >
                   Calculate Resonance
                 </button>

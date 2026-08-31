@@ -43,10 +43,10 @@ export function CircularGauge({ value, label, color }: CircularGaugeProps) {
           />
         </svg>
         <div className="absolute flex flex-col items-center justify-center">
-          <span className="text-2xl font-heading font-bold text-gray-900">{value}%</span>
+          <span className="text-2xl font-heading font-bold text-white">{value}%</span>
         </div>
       </div>
-      <span className="mt-4 text-sm font-medium tracking-wider text-gray-700 uppercase">{label}</span>
+      <span className="mt-4 text-sm font-medium tracking-wider text-gray-300 uppercase">{label}</span>
     </div>
   );
 }

@@ -112,13 +112,13 @@ export function CosmicInsightsSection() {
   const wheelRotation = -(selectedIdx * 30);
 
   return (
-    <section id="insights" className="pt-20 bg-slate-50 relative overflow-hidden min-h-screen flex flex-col items-center justify-between">
+    <section id="insights" className="pt-20 bg-cosmic-blue relative overflow-hidden min-h-screen flex flex-col items-center justify-between">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-100 via-slate-50 to-slate-50 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-aurora-purple/10 via-[#0B0F19] to-[#0B0F19] pointer-events-none" />
 
       {/* Text Display Area */}
       <div className="relative z-20 text-center w-full max-w-4xl mx-auto mt-12 px-6">
-        <h4 className="text-gray-600 tracking-[0.2em] text-xs md:text-sm font-semibold mb-6 uppercase">Your Daily Guidance</h4>
+        <h4 className="text-gray-400 tracking-[0.2em] text-xs md:text-sm font-semibold mb-6 uppercase">Your Daily Guidance</h4>
         
         <AnimatePresence mode="wait">
           <motion.div
@@ -154,7 +154,7 @@ export function CosmicInsightsSection() {
                   <div className="w-8 h-8 border-4 border-aurora-purple border-t-transparent rounded-full animate-spin"></div>
                 </div>
               ) : (
-                <p className="text-gray-800 text-sm md:text-lg leading-relaxed max-w-3xl text-center shadow-black drop-shadow-md">
+                <p className="text-gray-200 text-sm md:text-lg leading-relaxed max-w-3xl text-center shadow-black drop-shadow-md">
                   {insights[selectedSign.name] || "The cosmos are aligning today."}
                 </p>
               )}
@@ -168,7 +168,7 @@ export function CosmicInsightsSection() {
                 { label: 'Health', val: stats.health }
               ].map(stat => (
                 <div key={stat.label} className="flex flex-col items-start w-24 md:w-32">
-                  <div className="flex justify-between w-full text-gray-900 text-xs md:text-sm font-medium mb-2">
+                  <div className="flex justify-between w-full text-white text-xs md:text-sm font-medium mb-2">
                     <span>{stat.label}</span>
                     <span>{stat.val}%</span>
                   </div>
@@ -202,9 +202,9 @@ export function CosmicInsightsSection() {
           transition={{ type: "spring", stiffness: 40, damping: 15 }}
         >
           {/* Thick Tracks */}
-          <div className="absolute inset-0 rounded-full border-[50px] md:border-[70px] border-slate-100 shadow-[inset_0_0_40px_rgba(0,0,0,0.1),_0_0_60px_rgba(157,0,255,0.1)]">
-             <div className="absolute inset-0 rounded-full border-y-[4px] border-aurora-purple m-[6px] md:m-[10px] drop-shadow-[0_0_12px_rgba(157,0,255,0.3)] opacity-80"></div>
-             <div className="absolute inset-0 rounded-full border border-gray-300/50 m-[20px] md:m-[35px]"></div>
+          <div className="absolute inset-0 rounded-full border-[50px] md:border-[70px] border-[#0f1424] shadow-[inset_0_0_40px_rgba(0,0,0,0.9),_0_0_60px_rgba(157,0,255,0.2)]">
+             <div className="absolute inset-0 rounded-full border-y-[4px] border-aurora-purple m-[6px] md:m-[10px] drop-shadow-[0_0_12px_rgba(157,0,255,0.8)] opacity-80"></div>
+             <div className="absolute inset-0 rounded-full border border-white/20 m-[20px] md:m-[35px]"></div>
           </div>
 
           {/* Icons placed around the track */}
@@ -244,7 +244,7 @@ export function CosmicInsightsSection() {
 
         {/* Selected Highlight Overlay (Static) */}
         <div className="absolute bottom-0 md:bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center justify-end z-30 pointer-events-none pb-4 w-full">
-           <div className="w-20 h-24 md:w-28 md:h-32 border-[3px] border-celestial-gold rounded-t-xl bg-white/60 backdrop-blur-md shadow-[0_0_30px_rgba(212,175,55,0.3),inset_0_0_20px_rgba(212,175,55,0.2)] relative z-20 flex items-center justify-center">
+           <div className="w-20 h-24 md:w-28 md:h-32 border-[3px] border-celestial-gold rounded-t-xl bg-black/60 backdrop-blur-md shadow-[0_0_30px_rgba(212,175,55,0.3),inset_0_0_20px_rgba(212,175,55,0.2)] relative z-20 flex items-center justify-center">
               <div className="absolute -top-[12px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[12px] border-b-celestial-gold drop-shadow-[0_-5px_5px_rgba(212,175,55,0.5)]"></div>
               {/* Display the active icon clearly inside the highlighted box! */}
               <div className="relative w-12 h-12 md:w-16 md:h-16">

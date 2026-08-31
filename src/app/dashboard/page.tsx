@@ -64,15 +64,15 @@ export default function DashboardOverview() {
       {/* Top Welcome Row */}
       <div className="flex flex-col md:flex-row gap-6 items-stretch">
         {/* Welcome Card */}
-        <GlassCard glowColor="aurora" className="flex-1 p-8 bg-gradient-to-br from-white/80 to-purple-100/60 border border-aurora-purple/30 flex items-center justify-between">
+        <GlassCard glowColor="aurora" className="flex-1 p-8 bg-gradient-to-br from-black/80 to-[#1a0b2e]/60 border border-aurora-purple/30 flex items-center justify-between">
           <div className="flex items-center gap-6">
             <div className="w-20 h-20 rounded-full bg-aurora-purple/20 border-2 border-aurora-purple flex items-center justify-center text-3xl shadow-[0_0_20px_rgba(157,0,255,0.4)]">
               🧑‍🚀
             </div>
             <div>
-              <h2 className="text-3xl font-heading font-bold text-gray-900 mb-1">Welcome back,</h2>
+              <h2 className="text-3xl font-heading font-bold text-white mb-1">Welcome back,</h2>
               <p className="text-xl text-glow-gold font-bold">{userName}</p>
-              <p className="text-sm text-gray-600 mt-2">Astro Enthusiast - Level 5</p>
+              <p className="text-sm text-gray-400 mt-2">Astro Enthusiast - Level 5</p>
             </div>
           </div>
           
@@ -93,8 +93,8 @@ export default function DashboardOverview() {
         </button>
 
         {/* Daily Horoscope Summary (Auto-Rotating) */}
-        <GlassCard glowColor="gold" className="md:w-1/3 p-6 bg-white/60 border border-gray-300/10 flex flex-col justify-center relative overflow-hidden">
-          <h3 className="text-xs font-bold text-gray-600 tracking-widest uppercase mb-2 absolute top-6">Daily Horoscope</h3>
+        <GlassCard glowColor="gold" className="md:w-1/3 p-6 bg-black/60 border border-white/10 flex flex-col justify-center relative overflow-hidden">
+          <h3 className="text-xs font-bold text-gray-400 tracking-widest uppercase mb-2 absolute top-6">Daily Horoscope</h3>
           
           <div className="h-24 mt-6 relative">
             <AnimatePresence mode="wait">
@@ -107,7 +107,7 @@ export default function DashboardOverview() {
                 className="absolute inset-0"
               >
                 <h4 className="text-2xl font-bold text-celestial-gold mb-2">{HOROSCOPES[currentHoroIndex].sign}</h4>
-                <p className="text-sm text-gray-700 italic line-clamp-2">"{HOROSCOPES[currentHoroIndex].text}"</p>
+                <p className="text-sm text-gray-300 italic line-clamp-2">"{HOROSCOPES[currentHoroIndex].text}"</p>
               </motion.div>
             </AnimatePresence>
           </div>
@@ -126,13 +126,13 @@ export default function DashboardOverview() {
         
         {/* Real Interactive Sky Map */}
         <div className="lg:col-span-2">
-          <GlassCard glowColor="aurora" className="h-[450px] p-0 bg-white/60 border border-gray-300/10 flex flex-col relative overflow-hidden group">
+          <GlassCard glowColor="aurora" className="h-[450px] p-0 bg-black/60 border border-white/10 flex flex-col relative overflow-hidden group">
             <div className="absolute top-4 left-6 z-10 pointer-events-none">
-              <h3 className="text-xs font-bold text-gray-600 tracking-widest uppercase mb-1 drop-shadow-md">Live Interactive Sky Map</h3>
-              <p className="text-xs text-gray-900/50">Drag to pan, scroll to zoom.</p>
+              <h3 className="text-xs font-bold text-gray-400 tracking-widest uppercase mb-1 drop-shadow-md">Live Interactive Sky Map</h3>
+              <p className="text-xs text-white/50">Drag to pan, scroll to zoom.</p>
             </div>
             
-            <div className="flex-1 w-full h-full bg-white relative overflow-hidden">
+            <div className="flex-1 w-full h-full bg-[#03050a] relative overflow-hidden">
               <iframe 
                 src="https://virtualsky.lco.global/embed/index.html?longitude=0&latitude=0&projection=polar&constellations=true&constellationlabels=true&showstarlabels=true&gridlines_az=true&live=true&az=180" 
                 className="w-full h-[120%] -mt-10 border-0" 
@@ -145,16 +145,16 @@ export default function DashboardOverview() {
 
         {/* Right Column: Events & Activity */}
         <div className="flex flex-col gap-6">
-          <GlassCard glowColor="gold" className="p-6 bg-white/60 border border-gray-300/10">
-            <h3 className="text-xs font-bold text-gray-600 tracking-widest uppercase mb-4">Current Celestial Events</h3>
+          <GlassCard glowColor="gold" className="p-6 bg-black/60 border border-white/10">
+            <h3 className="text-xs font-bold text-gray-400 tracking-widest uppercase mb-4">Current Celestial Events</h3>
             <ul className="flex flex-col gap-4">
               {CELESTIAL_EVENTS.map((evt, i) => (
                 <li key={i}>
                   <Link href={evt.url} target="_blank" className="flex items-center gap-4 group cursor-pointer hover:bg-white/5 p-2 -mx-2 rounded-lg transition-colors">
                     <div className="w-10 h-10 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">{evt.icon}</div>
                     <div className="flex-1">
-                      <h5 className="font-bold text-sm text-gray-900 group-hover:text-celestial-gold transition-colors">{evt.title}</h5>
-                      <p className="text-xs text-gray-600">{evt.time}</p>
+                      <h5 className="font-bold text-sm text-white group-hover:text-celestial-gold transition-colors">{evt.title}</h5>
+                      <p className="text-xs text-gray-400">{evt.time}</p>
                     </div>
                     <div className="text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity">↗</div>
                   </Link>
@@ -163,13 +163,13 @@ export default function DashboardOverview() {
             </ul>
           </GlassCard>
 
-          <GlassCard glowColor="aurora" className="flex-1 p-6 bg-white/60 border border-gray-300/10">
-            <h3 className="text-xs font-bold text-gray-600 tracking-widest uppercase mb-4">Cosmic News</h3>
+          <GlassCard glowColor="aurora" className="flex-1 p-6 bg-black/60 border border-white/10">
+            <h3 className="text-xs font-bold text-gray-400 tracking-widest uppercase mb-4">Cosmic News</h3>
             <div className="flex flex-col gap-4">
               {COSMIC_NEWS.map((news, i) => (
-                <Link key={i} href={news.url} target="_blank" className="block group border-b border-gray-300/5 pb-3 last:border-0 last:pb-0">
-                  <h5 className="font-bold text-sm text-gray-900 mb-1 group-hover:text-aurora-purple transition-colors">{news.title}</h5>
-                  <p className="text-xs text-gray-600 leading-relaxed line-clamp-2">{news.desc}</p>
+                <Link key={i} href={news.url} target="_blank" className="block group border-b border-white/5 pb-3 last:border-0 last:pb-0">
+                  <h5 className="font-bold text-sm text-white mb-1 group-hover:text-aurora-purple transition-colors">{news.title}</h5>
+                  <p className="text-xs text-gray-400 leading-relaxed line-clamp-2">{news.desc}</p>
                 </Link>
               ))}
             </div>

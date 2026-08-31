@@ -40,7 +40,7 @@ export function ProtectedRoute({ children, requireAdmin = false }: ProtectedRout
 
   if (loading) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-slate-100">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#050810]">
         <div className="w-16 h-16 border-4 border-aurora-purple border-t-transparent rounded-full animate-spin"></div>
         <p className="mt-4 text-celestial-gold font-bold tracking-widest uppercase">Connecting to Cosmos...</p>
       </div>
