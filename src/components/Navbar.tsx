@@ -28,7 +28,7 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="text-2xl font-heading font-extrabold tracking-widest  drop-shadow-md cursor-pointer hover:text-celestial-gold transition-colors">
+        <a href="#" className={`text-2xl font-heading font-extrabold tracking-widest ${scrolled ? 'text-gray-900' : 'text-white'} drop-shadow-md cursor-pointer hover:text-celestial-gold transition-colors`}>
           ORBITAR
         </a>
 
@@ -44,7 +44,7 @@ export function Navbar() {
             <a 
               key={item.id} 
               href={`#${item.id}`}
-              className="text-sm font-semibold tracking-wider  hover:text-celestial-gold transition-colors uppercase"
+              className={`text-sm font-semibold tracking-wider ${scrolled ? 'text-gray-700' : 'text-gray-300'} hover:text-celestial-gold transition-colors uppercase`}
             >
               {item.name}
             </a>
@@ -53,7 +53,7 @@ export function Navbar() {
 
         {/* Action Buttons */}
         <div className="flex items-center gap-4">
-          <Link href="/login" className="hidden md:block text-sm font-semibold tracking-wider  hover:text-celestial-gold transition-colors">
+          <Link href="/login" className={`hidden md:block text-sm font-semibold tracking-wider ${scrolled ? 'text-gray-900' : 'text-white'} hover:text-celestial-gold transition-colors`}>
             LOG IN
           </Link>
           <Link href="/login" className="bg-celestial-gold hover:bg-yellow-500 text-black text-sm font-bold py-2 px-6 rounded-full transition-transform hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(212,175,55,0.4)] inline-block">
