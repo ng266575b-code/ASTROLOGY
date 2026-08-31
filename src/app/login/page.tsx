@@ -104,7 +104,7 @@ export default function LoginPage() {
       </div>
 
       <div className="bg-slate-50/80 backdrop-blur-xl p-10 rounded-2xl border border-gray-300/10 max-w-md w-full shadow-[0_0_40px_rgba(212,175,55,0.15)] relative z-10">
-        <div className="w-20 h-20 mx-auto bg-aurora-purple/10 rounded-full flex items-center justify-center border border-aurora-purple/30 mb-6 shadow-[0_0_20px_rgba(157,0,255,0.3)]">
+        <div className="w-20 h-20 mx-auto bg-purple-100 rounded-full flex items-center justify-center border border-aurora-purple/30 mb-6 shadow-[0_0_20px_rgba(157,0,255,0.3)]">
           <span className="text-4xl">🔮</span>
         </div>
         

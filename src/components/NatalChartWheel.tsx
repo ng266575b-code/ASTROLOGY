@@ -12,7 +12,7 @@ export function NatalChartWheel() {
       viewport={{ once: true }}
     >
       {/* Outer Glow */}
-      <div className="absolute inset-0 rounded-full bg-aurora-purple/10 blur-3xl" />
+      <div className="absolute inset-0 rounded-full bg-purple-100 blur-3xl" />
       <div className="absolute inset-10 rounded-full bg-celestial-gold/5 blur-2xl" />
 
       {/* Rotating SVG Chart */}

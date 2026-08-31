@@ -112,9 +112,9 @@ export function CosmicInsightsSection() {
   const wheelRotation = -(selectedIdx * 30);
 
   return (
-    <section id="insights" className="pt-20 bg-cosmic-blue relative overflow-hidden min-h-screen flex flex-col items-center justify-between">
+    <section id="insights" className="pt-20 bg-slate-50 relative overflow-hidden min-h-screen flex flex-col items-center justify-between">
       {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-aurora-purple/10 via-[#0B0F19] to-[#0B0F19] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-100 via-slate-50 to-slate-50 pointer-events-none" />
 
       {/* Text Display Area */}
       <div className="relative z-20 text-center w-full max-w-4xl mx-auto mt-12 px-6">
@@ -202,9 +202,9 @@ export function CosmicInsightsSection() {
           transition={{ type: "spring", stiffness: 40, damping: 15 }}
         >
           {/* Thick Tracks */}
-          <div className="absolute inset-0 rounded-full border-[50px] md:border-[70px] border-[#0f1424] shadow-[inset_0_0_40px_rgba(0,0,0,0.9),_0_0_60px_rgba(157,0,255,0.2)]">
-             <div className="absolute inset-0 rounded-full border-y-[4px] border-aurora-purple m-[6px] md:m-[10px] drop-shadow-[0_0_12px_rgba(157,0,255,0.8)] opacity-80"></div>
-             <div className="absolute inset-0 rounded-full border border-gray-300/20 m-[20px] md:m-[35px]"></div>
+          <div className="absolute inset-0 rounded-full border-[50px] md:border-[70px] border-slate-100 shadow-[inset_0_0_40px_rgba(0,0,0,0.1),_0_0_60px_rgba(157,0,255,0.1)]">
+             <div className="absolute inset-0 rounded-full border-y-[4px] border-aurora-purple m-[6px] md:m-[10px] drop-shadow-[0_0_12px_rgba(157,0,255,0.3)] opacity-80"></div>
+             <div className="absolute inset-0 rounded-full border border-gray-300/50 m-[20px] md:m-[35px]"></div>
           </div>
 
           {/* Icons placed around the track */}

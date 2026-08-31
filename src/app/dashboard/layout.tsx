@@ -68,7 +68,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         {/* Main Content Area */}
         <main className="flex-1 p-6 lg:p-12 relative overflow-hidden">
           {/* Subtle cosmic background glow */}
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-aurora-purple/5 blur-[150px] rounded-full pointer-events-none" />
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-purple-100/50 blur-[150px] rounded-full pointer-events-none" />
           
           <div className="max-w-7xl mx-auto relative z-10">
             {children}

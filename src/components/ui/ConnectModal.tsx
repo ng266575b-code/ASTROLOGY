@@ -31,7 +31,7 @@ export function ConnectModal({ isOpen, onClose }: ConnectModalProps) {
           >
             {/* Decorative elements */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-celestial-gold/10 blur-[50px] rounded-full pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-aurora-purple/10 blur-[50px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-purple-100 blur-[50px] rounded-full pointer-events-none" />
             
             <button 
               onClick={onClose}

@@ -54,7 +54,7 @@ export function VedicKundliChart({ seed = "default" }: { seed?: string }) {
       viewport={{ once: true }}
     >
       {/* Outer Glow */}
-      <div className="absolute inset-0 bg-aurora-purple/10 blur-3xl pointer-events-none" />
+      <div className="absolute inset-0 bg-purple-100 blur-3xl pointer-events-none" />
 
       {/* Vedic North Indian Kundli SVG */}
       <svg

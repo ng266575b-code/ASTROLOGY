@@ -7,7 +7,7 @@ import { ArrowLeft } from "lucide-react";
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
     <ProtectedRoute requireAdmin={true}>
-      <div className="min-h-screen bg-[#020205] text-gray-900 flex flex-col">
+      <div className="min-h-screen bg-slate-50 text-gray-900 flex flex-col">
         {/* Admin Header */}
         <header className="h-16 bg-red-900/20 border-b border-red-500/30 px-6 flex items-center justify-between sticky top-0 z-50 backdrop-blur-md">
           <div className="flex items-center gap-4">

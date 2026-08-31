@@ -109,7 +109,7 @@ export function TarotSection() {
                   {/* Back of Card (Revealed) */}
                   <GlassCard 
                     glowColor="aurora" 
-                    className="absolute top-0 left-0 w-full h-full flex flex-col items-center p-6 border-[3px] border-aurora-purple/80 bg-gradient-to-b from-[#1a0f35] to-[#0a0514] shadow-[0_0_30px_rgba(157,0,255,0.5),inset_0_0_20px_rgba(157,0,255,0.2)]"
+                    className="absolute top-0 left-0 w-full h-full flex flex-col items-center p-6 border-[3px] border-aurora-purple/80 bg-gradient-to-b from-purple-50 to-white shadow-[0_0_30px_rgba(157,0,255,0.5),inset_0_0_20px_rgba(157,0,255,0.2)]"
                     style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
                   >
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent opacity-50 pointer-events-none rounded-xl"></div>

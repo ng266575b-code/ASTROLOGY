@@ -42,7 +42,7 @@ export function KundliPortalSection() {
 
   return (
     <section id="kundli" className="py-24 px-6 lg:px-20 bg-slate-50 relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-aurora-purple/5 blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-100/50 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">

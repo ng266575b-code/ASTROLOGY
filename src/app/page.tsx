@@ -9,7 +9,7 @@ import { KundliPortalSection } from "@/components/KundliPortalSection";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-cosmic-blue selection:bg-celestial-gold selection:text-black">
+    <main className="flex min-h-screen flex-col bg-slate-50 selection:bg-celestial-gold selection:text-black">
       <HeroSection />
       <DashboardSection />
       <CosmicInsightsSection />

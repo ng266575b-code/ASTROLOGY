@@ -64,7 +64,7 @@ export default function DashboardOverview() {
       {/* Top Welcome Row */}
       <div className="flex flex-col md:flex-row gap-6 items-stretch">
         {/* Welcome Card */}
-        <GlassCard glowColor="aurora" className="flex-1 p-8 bg-gradient-to-br from-white/80 to-[#1a0b2e]/60 border border-aurora-purple/30 flex items-center justify-between">
+        <GlassCard glowColor="aurora" className="flex-1 p-8 bg-gradient-to-br from-white/80 to-purple-100/60 border border-aurora-purple/30 flex items-center justify-between">
           <div className="flex items-center gap-6">
             <div className="w-20 h-20 rounded-full bg-aurora-purple/20 border-2 border-aurora-purple flex items-center justify-center text-3xl shadow-[0_0_20px_rgba(157,0,255,0.4)]">
               🧑‍🚀
@@ -132,7 +132,7 @@ export default function DashboardOverview() {
               <p className="text-xs text-gray-900/50">Drag to pan, scroll to zoom.</p>
             </div>
             
-            <div className="flex-1 w-full h-full bg-[#03050a] relative overflow-hidden">
+            <div className="flex-1 w-full h-full bg-white relative overflow-hidden">
               <iframe 
                 src="https://virtualsky.lco.global/embed/index.html?longitude=0&latitude=0&projection=polar&constellations=true&constellationlabels=true&showstarlabels=true&gridlines_az=true&live=true&az=180" 
                 className="w-full h-[120%] -mt-10 border-0" 

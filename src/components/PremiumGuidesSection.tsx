@@ -6,7 +6,7 @@ import { AstrologerCarousel } from "./AstrologerCarousel";
 export function PremiumGuidesSection() {
   return (
     <section id="guides" className="py-24 bg-slate-100 relative overflow-hidden">
-      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-aurora-purple/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-purple-100 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto z-10 relative">
         <div className="text-center mb-16 px-6 lg:px-20">

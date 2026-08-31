@@ -33,7 +33,7 @@ export function CompatibilitySection() {
   };
 
   return (
-    <section id="synastry" className="py-24 px-6 lg:px-20 bg-cosmic-blue relative overflow-hidden">
+    <section id="synastry" className="py-24 px-6 lg:px-20 bg-slate-50 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-celestial-gold/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
