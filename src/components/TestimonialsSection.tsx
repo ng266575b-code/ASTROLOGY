@@ -49,7 +49,7 @@ const TESTIMONIALS = [
 
 export function TestimonialsSection() {
   return (
-    <section id="testimonials" className="py-24 px-6 lg:px-20 bg-[#050810] relative overflow-hidden">
+    <section id="testimonials" className="py-24 px-6 lg:px-20 bg-slate-100 relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-celestial-gold/5 blur-[120px] rounded-full pointer-events-none" />
 
@@ -59,11 +59,11 @@ export function TestimonialsSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-heading text-4xl md:text-5xl font-bold mb-4 text-white"
+            className="font-heading text-4xl md:text-5xl font-bold mb-4 text-gray-900"
           >
             Cosmic <span className="text-celestial-gold text-glow-gold">Testimonials</span>
           </motion.h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto">
             See what other travelers of the cosmos are saying about their journey.
           </p>
         </div>
@@ -78,16 +78,16 @@ export function TestimonialsSection() {
               transition={{ delay: idx * 0.1, duration: 0.6 }}
               className="min-w-[320px] md:min-w-[380px] snap-center"
             >
-              <GlassCard glowColor="aurora" className="h-full flex flex-col p-8 border-2 border-white/10 hover:border-aurora-purple/50 transition-colors">
+              <GlassCard glowColor="aurora" className="h-full flex flex-col p-8 border-2 border-gray-300/10 hover:border-aurora-purple/50 transition-colors">
                 <div className="flex items-center gap-4 mb-6">
                   <img src={testimonial.image} alt={testimonial.name} className="w-14 h-14 rounded-full border-2 border-celestial-gold/50" />
                   <div>
-                    <h4 className="font-heading font-bold text-lg text-white">{testimonial.name}</h4>
+                    <h4 className="font-heading font-bold text-lg text-gray-900">{testimonial.name}</h4>
                     <p className="text-xs text-aurora-green">{testimonial.role}</p>
                   </div>
                 </div>
                 
-                <p className="text-gray-300 italic mb-6 flex-1 text-sm leading-relaxed">
+                <p className="text-gray-700 italic mb-6 flex-1 text-sm leading-relaxed">
                   "{testimonial.content}"
                 </p>
                 

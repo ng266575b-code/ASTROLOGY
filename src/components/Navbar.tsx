@@ -22,13 +22,13 @@ export function Navbar() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? "bg-cosmic-blue/80 backdrop-blur-lg border-b border-white/10 shadow-lg" 
+          ? "bg-slate-50/80 backdrop-blur-lg border-b border-gray-300/10 shadow-lg" 
           : "bg-transparent pt-4"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-20 h-20 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="text-2xl font-heading font-extrabold tracking-widest text-white drop-shadow-md cursor-pointer hover:text-celestial-gold transition-colors">
+        <a href="#" className="text-2xl font-heading font-extrabold tracking-widest  drop-shadow-md cursor-pointer hover:text-celestial-gold transition-colors">
           ORBITAR
         </a>
 
@@ -44,7 +44,7 @@ export function Navbar() {
             <a 
               key={item.id} 
               href={`#${item.id}`}
-              className="text-sm font-semibold tracking-wider text-gray-300 hover:text-celestial-gold transition-colors uppercase"
+              className="text-sm font-semibold tracking-wider  hover:text-celestial-gold transition-colors uppercase"
             >
               {item.name}
             </a>
@@ -53,7 +53,7 @@ export function Navbar() {
 
         {/* Action Buttons */}
         <div className="flex items-center gap-4">
-          <Link href="/login" className="hidden md:block text-sm font-semibold tracking-wider text-white hover:text-celestial-gold transition-colors">
+          <Link href="/login" className="hidden md:block text-sm font-semibold tracking-wider  hover:text-celestial-gold transition-colors">
             LOG IN
           </Link>
           <Link href="/login" className="bg-celestial-gold hover:bg-yellow-500 text-black text-sm font-bold py-2 px-6 rounded-full transition-transform hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(212,175,55,0.4)] inline-block">

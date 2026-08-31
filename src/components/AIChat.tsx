@@ -84,7 +84,7 @@ export function AIChat() {
 
   return (
     <GlassCard glowColor="aurora" className="flex flex-col h-[400px] overflow-hidden">
-      <div className="p-4 border-b border-gray-200 flex items-center gap-3">
+      <div className="p-4 border-b border-gray-300/10 flex items-center gap-3">
         <Bot className="text-aurora-purple" size={24} />
         <h3 className="font-heading text-lg font-semibold text-gray-900">Orbitar AI Oracle</h3>
       </div>
@@ -97,7 +97,7 @@ export function AIChat() {
             key={msg.id} 
             className={`max-w-[85%] p-3 rounded-lg text-sm ${
               msg.sender === "ai" 
-                ? "bg-aurora-purple/20 text-gray-200 self-start border border-aurora-purple/30 rounded-tl-none" 
+                ? "bg-aurora-purple/20 text-gray-800 self-start border border-aurora-purple/30 rounded-tl-none" 
                 : "bg-celestial-gold/20 text-gray-900 self-end border border-celestial-gold/30 rounded-tr-none"
             }`}
           >
@@ -111,14 +111,14 @@ export function AIChat() {
         )}
       </div>
 
-      <div className="p-4 border-t border-gray-200">
+      <div className="p-4 border-t border-gray-300/10">
         <form onSubmit={handleSend} className="flex items-center gap-2 relative">
           <input 
             type="text" 
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask the cosmos..."
-            className="w-full bg-white/40 border border-white/20 rounded-full py-3 pl-4 pr-12 text-sm text-gray-900 outline-none focus:border-celestial-gold transition-colors"
+            className="w-full bg-white/40 border border-gray-300/20 rounded-full py-3 pl-4 pr-12 text-sm text-gray-900 outline-none focus:border-celestial-gold transition-colors"
           />
           <button 
             type="submit"

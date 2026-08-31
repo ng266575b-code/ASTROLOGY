@@ -12,13 +12,13 @@ export function NatalChartWheel() {
       viewport={{ once: true }}
     >
       {/* Outer Glow */}
-      <div className="absolute inset-0 rounded-full bg-aurora-purple/10 blur-3xl" />
+      <div className="absolute inset-0 rounded-full bg-purple-100 blur-3xl" />
       <div className="absolute inset-10 rounded-full bg-celestial-gold/5 blur-2xl" />
 
       {/* Rotating SVG Chart */}
       <motion.svg
         viewBox="0 0 400 400"
-        className="w-full h-full text-white/50 drop-shadow-[0_0_10px_rgba(157,0,255,0.4)]"
+        className="w-full h-full text-gray-900/50 drop-shadow-[0_0_10px_rgba(157,0,255,0.4)]"
         animate={{ rotate: 360 }}
         transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
       >

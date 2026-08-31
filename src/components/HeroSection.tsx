@@ -35,7 +35,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-            className="text-5xl md:text-7xl font-heading font-bold leading-tight mb-6 text-glow-gold"
+            className="text-5xl md:text-7xl font-heading font-bold leading-tight mb-6 text-white text-glow-gold"
           >
             NAVIGATE YOUR<br />COSMIC TRAJECTORY
           </motion.h1>

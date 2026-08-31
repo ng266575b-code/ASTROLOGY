@@ -69,8 +69,8 @@ export function DashboardSection() {
       className="relative min-h-screen bg-slate-50 pt-32 pb-20 px-6 lg:px-20 overflow-hidden"
     >
       {/* Background gradients for the dashboard */}
-      <div className="absolute top-0 inset-x-0 h-64 bg-gradient-to-b from-white/80 to-transparent pointer-events-none" />
-      <div className="absolute -left-[20%] top-[20%] w-[50%] h-[50%] bg-aurora-purple/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-0 inset-x-0 h-64 bg-gradient-to-b from-white/50 to-transparent pointer-events-none" />
+      <div className="absolute -left-[20%] top-[20%] w-[50%] h-[50%] bg-purple-100 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute -right-[20%] bottom-[10%] w-[40%] h-[40%] bg-celestial-gold/5 blur-[100px] rounded-full pointer-events-none" />
 
       <motion.div style={{ opacity, y }} className="max-w-7xl mx-auto z-10 relative">
@@ -91,7 +91,7 @@ export function DashboardSection() {
 
           {/* Center Column - Anti-Gravity Cards */}
           <div className="order-1 lg:order-2 flex justify-center relative">
-            <div className="absolute inset-0 bg-aurora-purple/10 blur-[100px] rounded-full z-0 pointer-events-none" />
+            <div className="absolute inset-0 bg-purple-100 blur-[100px] rounded-full z-0 pointer-events-none" />
             
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
@@ -128,7 +128,7 @@ export function DashboardSection() {
                       className="w-full h-full cursor-pointer group"
                       onMouseEnter={() => handleSliceHover(i)}
                     >
-                      <div className="w-full h-full rounded-2xl bg-white/60 border border-gray-200 shadow-[0_0_20px_rgba(157,0,255,0.2)] backdrop-blur-xl overflow-hidden p-2 transition-all duration-300 group-hover:border-aurora-purple/50 group-hover:bg-white/10 group-hover:scale-110">
+                      <div className="w-full h-full rounded-2xl bg-white/60 border border-gray-300/50 shadow-[0_0_15px_rgba(157,0,255,0.1)] backdrop-blur-xl overflow-hidden p-2 transition-all duration-300 group-hover:border-aurora-purple/50 group-hover:bg-white/90 group-hover:scale-110">
                         <Image 
                           src={`/icon_${ZODIAC_INSIGHTS[i].name.toLowerCase()}.png`}
                           alt={ZODIAC_INSIGHTS[i].name}
@@ -149,7 +149,7 @@ export function DashboardSection() {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[85%] pointer-events-none"
                 >
-                  <GlassCard glowColor="gold" className="p-5 text-center bg-white/90 backdrop-blur-md">
+                  <GlassCard glowColor="gold" className="p-5 text-center bg-white/80 backdrop-blur-md">
                     <h4 className="text-lg md:text-xl font-heading font-bold text-gray-900 mb-2 uppercase tracking-widest drop-shadow-md">
                       {selectedInsight.name}
                     </h4>
@@ -165,13 +165,13 @@ export function DashboardSection() {
           {/* Right Column - Gauges */}
           <div className="order-3 lg:order-3 flex flex-col sm:flex-row lg:flex-col gap-6 justify-center">
             <GlassCard className="flex-1 flex items-center justify-center py-6">
-              <CircularGauge lightMode value={85} label="Love Energy" color="var(--color-aurora-purple)" />
+              <CircularGauge value={85} label="Love Energy" color="var(--color-aurora-purple)" />
             </GlassCard>
             <GlassCard className="flex-1 flex items-center justify-center py-6">
-              <CircularGauge lightMode value={92} label="Career Focus" color="var(--color-celestial-gold)" />
+              <CircularGauge value={92} label="Career Focus" color="var(--color-celestial-gold)" />
             </GlassCard>
             <GlassCard className="flex-1 flex items-center justify-center py-6">
-              <CircularGauge lightMode value={78} label="Finance Outlook" color="var(--color-aurora-green)" />
+              <CircularGauge value={78} label="Finance Outlook" color="var(--color-aurora-green)" />
             </GlassCard>
           </div>
         </div>

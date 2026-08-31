@@ -54,7 +54,7 @@ export function VedicKundliChart({ seed = "default" }: { seed?: string }) {
       viewport={{ once: true }}
     >
       {/* Outer Glow */}
-      <div className="absolute inset-0 bg-aurora-purple/10 blur-3xl pointer-events-none" />
+      <div className="absolute inset-0 bg-purple-100 blur-3xl pointer-events-none" />
 
       {/* Vedic North Indian Kundli SVG */}
       <svg
@@ -62,7 +62,7 @@ export function VedicKundliChart({ seed = "default" }: { seed?: string }) {
         className="w-full h-full text-celestial-gold drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]"
       >
         {/* Chart Background */}
-        <rect x="10" y="10" width="380" height="380" fill="#130b29" stroke="none" />
+        <rect x="10" y="10" width="380" height="380" fill="#f8fafc" stroke="none" />
         
         {/* Outer Square Border */}
         <rect x="10" y="10" width="380" height="380" stroke="currentColor" strokeWidth="3" fill="none" />
@@ -90,7 +90,7 @@ export function VedicKundliChart({ seed = "default" }: { seed?: string }) {
                 x={house.x}
                 y={house.y - 15}
                 textAnchor="middle"
-                fill="rgba(255, 255, 255, 0.4)"
+                fill="rgba(0, 0, 0, 0.6)"
                 fontSize="14"
                 fontFamily="sans-serif"
               >

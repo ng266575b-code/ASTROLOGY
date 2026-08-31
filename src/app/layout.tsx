@@ -28,7 +28,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${spaceGrotesk.variable} scroll-smooth`}
     >
-      <body className="min-h-screen bg-cosmic-blue text-white overflow-x-hidden font-sans">
+      <body className="min-h-screen bg-slate-50 text-gray-900 overflow-x-hidden font-sans">
         <Navbar />
         {children}
       </body>

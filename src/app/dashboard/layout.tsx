@@ -26,12 +26,12 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   return (
     <ProtectedRoute>
-      <div className="min-h-screen bg-[#050810] text-white flex flex-col">
+      <div className="min-h-screen bg-slate-100 text-gray-900 flex flex-col">
         {/* Dashboard Header (No Sidebar) */}
-        <header className="sticky top-0 z-50 bg-[#0a0514]/80 backdrop-blur-xl border-b border-white/10 px-6 lg:px-12 h-20 flex items-center justify-between">
+        <header className="sticky top-0 z-50 bg-slate-50/80 backdrop-blur-xl border-b border-gray-300/10 px-6 lg:px-12 h-20 flex items-center justify-between">
           <div className="flex items-center gap-12">
-            <Link href="/" className="text-2xl font-heading font-extrabold tracking-widest text-glow-gold hover:text-white transition-colors">
-              ORBITAR <span className="text-sm font-normal text-gray-400">DASHBOARD</span>
+            <Link href="/" className="text-2xl font-heading font-extrabold tracking-widest text-glow-gold hover:text-gray-900 transition-colors">
+              ORBITAR <span className="text-sm font-normal text-gray-600">DASHBOARD</span>
             </Link>
             
             <nav className="hidden md:flex gap-6">
@@ -44,7 +44,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                     className={`text-sm font-bold uppercase tracking-wider transition-colors py-2 border-b-2 ${
                       isActive 
                         ? "text-celestial-gold border-celestial-gold" 
-                        : "text-gray-400 border-transparent hover:text-white"
+                        : "text-gray-600 border-transparent hover:text-gray-900"
                     }`}
                   >
                     {item.name}
@@ -58,7 +58,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             <Link href="/admin" className="text-xs text-gray-500 hover:text-aurora-purple hidden lg:block">Admin Portal</Link>
             <button 
               onClick={handleLogout}
-              className="border border-white/20 hover:bg-white/10 px-4 py-2 rounded-lg text-sm font-bold transition-colors flex items-center gap-2"
+              className="border border-gray-300/20 hover:bg-white/10 px-4 py-2 rounded-lg text-sm font-bold transition-colors flex items-center gap-2"
             >
               Sign Out
             </button>
@@ -68,7 +68,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         {/* Main Content Area */}
         <main className="flex-1 p-6 lg:p-12 relative overflow-hidden">
           {/* Subtle cosmic background glow */}
-          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-aurora-purple/5 blur-[150px] rounded-full pointer-events-none" />
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-purple-100/50 blur-[150px] rounded-full pointer-events-none" />
           
           <div className="max-w-7xl mx-auto relative z-10">
             {children}
