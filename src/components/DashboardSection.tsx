@@ -66,10 +66,10 @@ export function DashboardSection() {
     <section 
       id="dashboard"
       ref={ref}
-      className="relative min-h-screen bg-cosmic-blue pt-32 pb-20 px-6 lg:px-20 overflow-hidden"
+      className="relative min-h-screen bg-slate-50 pt-32 pb-20 px-6 lg:px-20 overflow-hidden"
     >
       {/* Background gradients for the dashboard */}
-      <div className="absolute top-0 inset-x-0 h-64 bg-gradient-to-b from-black/50 to-transparent pointer-events-none" />
+      <div className="absolute top-0 inset-x-0 h-64 bg-gradient-to-b from-white/80 to-transparent pointer-events-none" />
       <div className="absolute -left-[20%] top-[20%] w-[50%] h-[50%] bg-aurora-purple/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute -right-[20%] bottom-[10%] w-[40%] h-[40%] bg-celestial-gold/5 blur-[100px] rounded-full pointer-events-none" />
 
@@ -78,7 +78,7 @@ export function DashboardSection() {
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4 text-glow-gold">
             The Orbitar AI Dashboard
           </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-700 text-lg max-w-2xl mx-auto">
             Initialize your personalized matrix. Discover real-time insights synchronized with the cosmos.
           </p>
         </div>
@@ -128,7 +128,7 @@ export function DashboardSection() {
                       className="w-full h-full cursor-pointer group"
                       onMouseEnter={() => handleSliceHover(i)}
                     >
-                      <div className="w-full h-full rounded-2xl bg-white/5 border border-white/10 shadow-[0_0_20px_rgba(157,0,255,0.2)] backdrop-blur-xl overflow-hidden p-2 transition-all duration-300 group-hover:border-aurora-purple/50 group-hover:bg-white/10 group-hover:scale-110">
+                      <div className="w-full h-full rounded-2xl bg-white/60 border border-gray-200 shadow-[0_0_20px_rgba(157,0,255,0.2)] backdrop-blur-xl overflow-hidden p-2 transition-all duration-300 group-hover:border-aurora-purple/50 group-hover:bg-white/10 group-hover:scale-110">
                         <Image 
                           src={`/icon_${ZODIAC_INSIGHTS[i].name.toLowerCase()}.png`}
                           alt={ZODIAC_INSIGHTS[i].name}
@@ -149,8 +149,8 @@ export function DashboardSection() {
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 w-[85%] pointer-events-none"
                 >
-                  <GlassCard glowColor="gold" className="p-5 text-center bg-black/80 backdrop-blur-md">
-                    <h4 className="text-lg md:text-xl font-heading font-bold text-white mb-2 uppercase tracking-widest drop-shadow-md">
+                  <GlassCard glowColor="gold" className="p-5 text-center bg-white/90 backdrop-blur-md">
+                    <h4 className="text-lg md:text-xl font-heading font-bold text-gray-900 mb-2 uppercase tracking-widest drop-shadow-md">
                       {selectedInsight.name}
                     </h4>
                     <p className="text-sm md:text-base font-medium text-celestial-gold whitespace-pre-line leading-relaxed">
@@ -165,13 +165,13 @@ export function DashboardSection() {
           {/* Right Column - Gauges */}
           <div className="order-3 lg:order-3 flex flex-col sm:flex-row lg:flex-col gap-6 justify-center">
             <GlassCard className="flex-1 flex items-center justify-center py-6">
-              <CircularGauge value={85} label="Love Energy" color="var(--color-aurora-purple)" />
+              <CircularGauge lightMode value={85} label="Love Energy" color="var(--color-aurora-purple)" />
             </GlassCard>
             <GlassCard className="flex-1 flex items-center justify-center py-6">
-              <CircularGauge value={92} label="Career Focus" color="var(--color-celestial-gold)" />
+              <CircularGauge lightMode value={92} label="Career Focus" color="var(--color-celestial-gold)" />
             </GlassCard>
             <GlassCard className="flex-1 flex items-center justify-center py-6">
-              <CircularGauge value={78} label="Finance Outlook" color="var(--color-aurora-green)" />
+              <CircularGauge lightMode value={78} label="Finance Outlook" color="var(--color-aurora-green)" />
             </GlassCard>
           </div>
         </div>
